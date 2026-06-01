@@ -163,6 +163,22 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
 }
 .sec-head .meta { margin-left: auto; color: var(--text-mute); }
+.sec-head .live {
+  color: var(--signal);
+  display: inline-flex;
+  align-items: center;
+}
+.sec-head .live::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--signal);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 10px var(--signal);
+  animation: pulse 1.6s ease-in-out infinite;
+  display: inline-block;
+}
 
 /* ───────────── HERO ───────────── */
 
@@ -181,6 +197,21 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1000px) {
   .hero-grid { grid-template-columns: 1.55fr 1fr; gap: 56px; }
 }
+
+.hero-status {
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 30px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.hero-status b { color: var(--accent); font-weight: 700; }
 
 .tag-row {
   display: flex;
@@ -1349,7 +1380,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--line);
   margin-bottom: 50px;
 }
-@media (min-width: 720px) { .contact-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 720px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .contact-item {
   background: var(--bg);
@@ -1382,6 +1413,9 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px;
   color: var(--text-dim);
 }
+.contact-item.wa .lbl { color: var(--signal); }
+.contact-item.wa .val { color: var(--signal); }
+.contact-item.wa:hover { background: rgba(0,255,136,0.05); }
 
 .foot {
   padding-top: 30px;
@@ -1737,6 +1771,12 @@ a { color: inherit; text-decoration: none; }
       </aside>
 
     </div>
+
+    <div class="hero-status">
+      <span><b>OPEN TO:</b> Graduate scheme · Design Engineer · Stress / CAE · Composite Design · Simulation</span>
+      <span><b>WORK ELIGIBILITY:</b> EU citizen (full EU work rights) · UK Graduate Route visa, no sponsorship</span>
+      <span><b>START:</b> Sept 2026 · Already UK-based, relocate immediately</span>
+    </div>
   </div>
 </section>
 
@@ -1820,12 +1860,6 @@ a { color: inherit; text-decoration: none; }
         <span class="disc-arr">→</span>
       </div>
     </div>
-
-    <div class="disc-foot reveal">
-      <span><b>OPEN TO:</b> Graduate scheme · Design Engineer · Stress / CAE · Composite Design · Simulation</span>
-      <span><b>WORK ELIGIBILITY:</b> EU citizen (full EU work rights) · UK Graduate Route visa, no sponsorship</span>
-      <span><b>START:</b> Sept 2026 · Already UK-based, relocate immediately</span>
-    </div>
   </div>
 </section>
 
@@ -1872,7 +1906,7 @@ a { color: inherit; text-decoration: none; }
     <div class="sec-head reveal">
       <span class="num">§03</span>
       <span class="title">EXPERIENCE / TIMELINE</span>
-      <span class="meta">2020 → PRESENT</span>
+      <span class="meta">2018 → PRESENT</span>
     </div>
 
     <div class="timeline">
@@ -1889,7 +1923,6 @@ a { color: inherit; text-decoration: none; }
           <ul>
             <li>Helped <b>organise the first international Formula Student competition in Greece</b>, running the technical, engineering and scientific departments for an event with <b>500+ participants</b>.</li>
             <li>Worked as <b>judge and scrutineer</b> as well as coordinator: assessed team submissions and enforced compliance against Formula Student technical regulations.</li>
-            <li>Built the IAD reviewer framework against <b>FS Rules 2026 v1.1</b> and applied it to live submissions across multiple competitions.</li>
             <li>Wrote the technical regulations, scrutineering procedures and team-assessment process from scratch, to international engineering standards.</li>
           </ul>
         </div>
@@ -1905,12 +1938,12 @@ a { color: inherit; text-decoration: none; }
           <div class="org">Poseidon Racing Team · University of West Attica</div>
           <div class="desc">Multidisciplinary student engineering team designing and manufacturing Formula Student race cars for European competition.</div>
           <ul>
-            <li><b>Founded UWA's first Formula Student team.</b> Built its technical structure, engineering procedures and project framework from scratch, and grew it from <b>6 to 40+ members</b>.</li>
+            <li><b>Founded UNIWA's first Formula Student team.</b> Built its technical structure, engineering procedures and project framework from scratch, and grew it from <b>6 to 40+ members</b>.</li>
             <li>Delivered the university's debut car to <b>finish Endurance at Formula Student East</b>. Many entrants never reach the flag; ours did, first time out.</li>
             <li>Led a <b>43-member team</b> across vehicle design, manufacturing, testing and R&amp;D; developed aerodynamic and structural components via CFD (ANSYS Fluent, ANSA, META) and FEA (ANSYS Workbench).</li>
             <li>Built a <b>KPI framework</b> (lap-time simulation, vehicle dynamics, DoE) to quantify how early design choices affect performance, and used it in the team's R&amp;D loop.</li>
             <li>Led manufacturing planning across CNC machining, 3D printing, laser and hydro cutting; authored cost analyses, documentation and <b>BOMs covering 200+ parts</b>.</li>
-            <li>Ran the full Formula Student crunch: late nights, no-weekend builds, hard deadlines. The car made the grid because the team put the hours in.</li>
+            <li>Learned that before you build the car, you build the <b>team</b> — recruiting, structuring and mentoring the people who delivered it, and keeping them motivated through every deadline.</li>
           </ul>
         </div>
       </div>
@@ -1947,6 +1980,22 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
 
+      <div class="tl-item reveal">
+        <div class="tl-meta">
+          <span class="date">SEP 2018 — JUL 2025</span>
+          <span class="loc">Athens, Greece</span>
+        </div>
+        <div class="tl-content">
+          <h3>Integrated Master (BEng) · Mechanical Engineering</h3>
+          <div class="org">University of West Attica · Athens, Greece</div>
+          <div class="desc">The five-year degree where the Formula Student journey began — the foundation behind every team, car and competition that followed.</div>
+          <ul>
+            <li>Graduated with a <b>UK 2:1 equivalent (7.26 / 10)</b> while founding and running the university's Formula Student programme in parallel.</li>
+            <li>Delivered an <b>AI-driven thesis</b> combining LSTM networks, Genetic Algorithms and FEA to predict the mechanical behaviour of 3D-printed materials.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1969,10 +2018,6 @@ a { color: inherit; text-decoration: none; }
         </div>
         <h3>MSc Advanced Mechanical Engineering</h3>
         <div class="school"><b>Cranfield University</b> · Cranfield, UK</div>
-
-        <div class="pedigree">
-          <b>// PEDIGREE</b> — Cranfield feeds engineers into top motorsport and aerospace teams, and partners directly with Silverstone-based employers.
-        </div>
 
         <div class="award-badge">
           <span class="trophy">★</span>
@@ -2023,6 +2068,11 @@ a { color: inherit; text-decoration: none; }
           </div>
           <div class="grade">FINAL GRADE · <b>7.26 / 10</b> · UK 2:1 EQUIVALENT</div>
         </div>
+
+        <div class="thesis-line">
+          <span class="lbl">BEng Thesis</span>
+          <b>Identification of Constitutive Material Parameters in AM Structures using AI</b> — an FEA and machine-learning workflow (LSTM + Genetic Algorithms) for predicting the properties of 3D-printed laminates.
+        </div>
       </article>
 
     </div>
@@ -2035,6 +2085,7 @@ a { color: inherit; text-decoration: none; }
     <div class="sec-head reveal">
       <span class="num">§05</span>
       <span class="title">PROJECTS &amp; RESEARCH</span>
+      <span class="live">LIVE · IN PROGRESS</span>
       <span class="meta">SELECTED · 2024 → 2026</span>
     </div>
 
@@ -2109,7 +2160,7 @@ a { color: inherit; text-decoration: none; }
 
     <div class="research v3 reveal">
       <div class="research-side">
-        <div class="label">// BENG THESIS · UWA</div>
+        <div class="label">// BENG THESIS · UNIWA</div>
         <h3>Identification of Constitutive Material Parameters in AM Structures using AI</h3>
         <p class="deck">An FEA and machine-learning workflow for predicting the properties of 3D-printed laminates.</p>
       </div>
@@ -2312,7 +2363,7 @@ a { color: inherit; text-decoration: none; }
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="num">§08</span>
-      <span class="title">OFF-TRACK / INTERESTS</span>
+      <span class="title">INTERESTS</span>
       <span class="meta">CONTEXT</span>
     </div>
 
@@ -2367,12 +2418,6 @@ a { color: inherit; text-decoration: none; }
       <span class="meta">END OF FILE</span>
     </div>
 
-    <h2 class="reveal">
-      Let's build<br>
-      <span class="stroke">something</span><br>
-      <span class="accent">that works.</span>
-    </h2>
-
     <div class="contact-grid reveal-stagger">
       <a class="contact-item reveal" href="mailto:Alexis.Karavitis.978@cranfield.ac.uk">
         <div class="lbl">→ EMAIL · PRIMARY</div>
@@ -2380,9 +2425,14 @@ a { color: inherit; text-decoration: none; }
         <div class="sub">Reply within 24h · UK time</div>
       </a>
       <a class="contact-item reveal" href="tel:+447442717485">
-        <div class="lbl">→ PHONE / WHATSAPP</div>
+        <div class="lbl">→ PHONE · UK</div>
         <div class="val">+44 7442 717485</div>
         <div class="sub">Call or text · UK number</div>
+      </a>
+      <a class="contact-item wa reveal" href="https://wa.me/306981054488">
+        <div class="lbl">→ WHATSAPP</div>
+        <div class="val">+30 698 105 4488</div>
+        <div class="sub">Message me directly · GR number</div>
       </a>
       <div class="contact-item reveal">
         <div class="lbl">→ LOCATION</div>
