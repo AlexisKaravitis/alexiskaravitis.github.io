@@ -1490,6 +1490,11 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.04em; color: var(--text-2);
   border: 1px solid var(--line-2); padding: 5px 10px; border-radius: 100px;
 }
+/* Flagship dossier accents */
+.pj-grid.flagship { margin-bottom: 30px; }
+.pj-card.flag { border-top: 2px solid var(--accent); }
+.pj-card.flag .pj-tag { color: var(--accent-2); }
+.pj-card.flag .pj-disc { background: var(--accent); color: #fff; }
 .pj-note {
   margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line);
   font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.04em;
@@ -2426,104 +2431,177 @@ a { color: inherit; text-decoration: none; }
       <span class="meta">SELECTED · 2024 → 2026</span>
     </div>
 
-    <div class="research reveal">
-      <div class="research-side">
-        <div class="label">// MSC THESIS · CRANFIELD · IN PROGRESS</div>
-        <h3>Design of a Fatigue Testing Machine for Elastomer Life Characterization</h3>
-        <p class="deck">A purpose-built rig for measuring the fatigue life of elastomers under cyclic loading, designed end to end from dynamics to manufacturable hardware.</p>
-      </div>
-
-      <div class="research-main">
-        <p>
-          <b>Designing a fatigue testing rig for elastomer specimens</b>, from dynamic model through
-          to a sized, manufacturable design.
-        </p>
-        <p>
-          It combines <b>Simulink dynamic modelling, CATIA V5 CAD and FEA-based component sizing</b> in
-          one workflow. Elastomers govern ride, NVH and durability across tyres, bushings, mounts and
-          dampers, and they're hard to model, which makes their fatigue life one of the trickier problems
-          in vehicle development.
-        </p>
-        <div class="research-tools">
-          <span class="pill">Simulink</span>
-          <span class="pill">CATIA V5</span>
-          <span class="pill">FEA</span>
-          <span class="pill">Dynamic Modelling</span>
-          <span class="pill">Fatigue Analysis</span>
-          <span class="pill">Elastomers</span>
-          <span class="pill">Test Rig Design</span>
-        </div>
-      </div>
+<!-- ═══════════ FLAGSHIP DOSSIERS · THESES & AWARD ═══════════ -->
+    <div class="gallery-head reveal">
+      <span class="bar">▣</span>
+      <span class="t">FLAGSHIP · THESES &amp; AWARD PROJECT</span>
+      <span>MSc &amp; BEng THESES · GROUP AWARD</span>
+      <span class="m">CLICK ANY CARD</span>
     </div>
 
-    <div class="research v2 reveal">
-      <div class="research-side">
-        <div class="label">// MSC GROUP PROJECT · CRANFIELD</div>
-        <h3>Digital Twin &amp; Demonstration of Autonomous Surface Vessels</h3>
-        <p class="deck">A cooperative ASV fleet for unpowered tanker escort, with a full digital twin built to visualise live and historical telemetry.</p>
+    <div class="pj-grid flagship reveal-stagger">
+    <div class="pj-card flag" role="button" tabindex="0" data-pj="msc-thesis" aria-label="Open project dossier: Fatigue-Testing Machine for Elastomer Life Characterization">
+      <div class="pj-shot">
+        <span class="pj-tag">THESIS · MSc</span>
+        <span class="pj-disc">DESIGN · DYNAMICS · FEA</span>
+        <img src="assets/projects/msc-thesis-01.gif" width="1089" height="627" loading="lazy" decoding="async" alt="Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs.">
+      </div>
+      <div class="pj-body">
+        <div class="pj-name">Fatigue-Testing Machine for Elastomer Life Characterization</div>
+        <div class="pj-metric">Slider-crank rig · 2.2 kW / <b>98 kg</b> flywheel · 3-solver-validated dynamic model</div>
+        <div class="pj-toolrow"><span class="pj-tool">MATLAB</span><span class="pj-tool">Simulink</span><span class="pj-tool">CATIA V5</span><span class="pj-tool">FEA</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+      </div>
+      <div class="pj-detail" hidden>
+        <div class="pj-eyebrow">THESIS · MSc · MSc THESIS · CRANFIELD · IN PROGRESS</div>
+        <h3 class="pj-h" data-pj-title>Fatigue-Testing Machine for Elastomer Life Characterization</h3>
+        <p class="pj-sub">A purpose-built rig for measuring the fatigue life of elastomers under cyclic loading, designed end to end from dynamics to manufacturable hardware.</p>
 
-        <div class="award-badge" style="margin-top: 22px;">
+        <div class="pj-figs two">
+        <figure class="pj-fig" data-full="assets/projects/msc-thesis-01.gif" data-cap="Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/msc-thesis-01.gif" width="1089" height="627" loading="lazy" decoding="async" alt="Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs."></div>
+          <figcaption>Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs.</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/msc-thesis-02.jpg" data-cap="Optimisation study: objective surface, six-solver agreement and a 4000-sample search converging on the optimum.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/msc-thesis-02.jpg" width="1180" height="823" loading="lazy" decoding="async" alt="Optimisation study: objective surface, six-solver agreement and a 4000-sample search converging on the optimum."></div>
+          <figcaption>Optimisation study: objective surface, six-solver agreement and a 4000-sample search converging on the optimum.</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/msc-thesis-03.jpg" data-cap="Start-up cross-validated three ways — hand ODE, Simulink and Simscape — agreeing to ~1×10⁻⁵.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/msc-thesis-03.jpg" width="1180" height="787" loading="lazy" decoding="async" alt="Start-up cross-validated three ways — hand ODE, Simulink and Simscape — agreeing to ~1×10⁻⁵."></div>
+          <figcaption>Start-up cross-validated three ways — hand ODE, Simulink and Simscape — agreeing to ~1×10⁻⁵.</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/msc-thesis-04.gif" data-cap="Reworked “diabolo” specimen at +250% strain in the resized 3-station variant.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/msc-thesis-04.gif" width="792" height="456" loading="lazy" decoding="async" alt="Reworked “diabolo” specimen at +250% strain in the resized 3-station variant."></div>
+          <figcaption>Reworked “diabolo” specimen at +250% strain in the resized 3-station variant.</figcaption>
+        </figure>
+        </div>
+        <div class="pj-cols">
+          <div>
+            <div class="pj-block"><div class="pj-label">// Overview</div><p class="pj-para">Designing a fatigue testing rig for elastomer specimens, from dynamic model through to a sized, manufacturable design. It combines Simulink dynamic modelling, CATIA V5 CAD and FEA-based component sizing in one workflow. Elastomers govern ride, NVH and durability across tyres, bushings, mounts and dampers, and they’re hard to model, which makes their fatigue life one of the trickier problems in vehicle development.</p></div>
+            <div class="pj-block"><div class="pj-label">// Method</div><ol class="pj-method"><li>Modelled the filled rubber as a nonlinear spring + damper (F = k₁d + k₃d³) capturing stiffness and loss</li><li>Derived exact slider-crank kinematics, then per-specimen forces ×12 with drivetrain inertia</li><li>Sized motor power and flywheel inertia to hold speed within the ripple limit</li><li>Optimised over six solvers plus a 4000-sample random search on a single weighted cost</li><li>Verified the dynamics with a hand ODE, a Simulink diagram and a self-deriving Simscape network</li></ol></div>
+          </div>
+          <div>
+            <div class="pj-block"><div class="pj-label">// Highlights</div><ul class="pj-results"><li>Slider-crank rig fatigue-tests <b>12 rubber specimens</b> at <b>5 Hz</b>, 57 mm stroke (ISO 132)</li><li>Sized drivetrain: <b>2.2 kW</b> motor and a <b>98 kg</b> flywheel, optimised down from an infeasible 384 kg</li><li><b>6 optimisation solvers</b> converge on one optimum; a 4000-sample search confirms within <b>0.4%</b></li><li>Cross-validated three ways — hand ODE, Simulink, Simscape — agreeing to <b>~3 ppm</b> (MATLAB + Octave)</li><li>Hands off <b>5.1 kN / 1.27 kN</b> peak loads to Abaqus FEA; ~4.6 days to a 2M-cycle test at 5 Hz</li></ul></div>
+            <div class="pj-block"><div class="pj-label">// Tools &amp; methods</div><div class="pj-pills"><span class="pill">MATLAB</span><span class="pill">Simulink</span><span class="pill">Simscape</span><span class="pill">CATIA V5</span><span class="pill">Abaqus (FEA)</span><span class="pill">Optimisation</span><span class="pill">ISO 132</span><span class="pill">Dynamic Modelling</span><span class="pill">Fatigue Analysis</span><span class="pill">Elastomers</span></div></div>
+          </div>
+        </div>
+        <div class="pj-note">Individual MSc thesis, in progress. Rubber-law coefficients are provisional placeholders pending measured Dunlop test data; they rescale magnitudes, not the method.</div>
+      </div>
+    </div>
+    <div class="pj-card flag hero-dark" role="button" tabindex="0" data-pj="asv" aria-label="Open project dossier: Digital Twin &amp; Demonstration of Autonomous Surface Vessels">
+      <div class="pj-shot">
+        <span class="pj-tag">GROUP PROJECT · MSc</span>
+        <span class="pj-disc">DIGITAL TWIN · CONTROLS</span>
+        <img src="assets/projects/asv-01.jpg" width="1180" height="878" loading="lazy" decoding="async" alt="Real-time digital-twin dashboard: 3D vessel replica synced to live pose with per-motor voltage, current, power and XY-trajectory telemetry.">
+      </div>
+      <div class="pj-body">
+        <div class="pj-name">Digital Twin &amp; Demonstration of Autonomous Surface Vessels</div>
+        <div class="pj-metric">Award-winning cooperative tug fleet · <b>0% packet loss</b> · &lt;50 ms sync lag</div>
+        <div class="pj-toolrow"><span class="pj-tool">MATLAB</span><span class="pj-tool">Digital Twin</span><span class="pj-tool">AprilTag</span><span class="pj-tool">Python</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+      </div>
+      <div class="pj-detail" hidden>
+        <div class="pj-eyebrow">GROUP PROJECT · MSc · MSc GROUP PROJECT · CRANFIELD · GROUP E3</div>
+        <h3 class="pj-h" data-pj-title>Digital Twin &amp; Demonstration of Autonomous Surface Vessels</h3>
+        <p class="pj-sub">A cooperative ASV fleet for unpowered tanker escort, with a full digital twin built to visualise live and historical telemetry.</p>
+        <div class="award-badge" style="margin:16px 0 4px;">
           <span class="trophy">★</span>
           <div class="award-body">
             <span class="award-tag">AWARD · MAY 2026</span>
             <b>Best Group Project Presentation Award</b> — AME programme, Cranfield University.
           </div>
         </div>
-      </div>
-
-      <div class="research-main">
-        <p>
-          <b>A cooperative fleet of autonomous tugboats for unpowered tanker escort</b>, built as an
-          MSc group project.
-        </p>
-        <p>
-          I built the <b>MATLAB 3D digital twin</b> (animated hull and water, live telemetry dashboard,
-          historical-playback and live-tracking modes) and owned the MATLAB control and comms. I traced
-          the main bottleneck to WiFi latency and rebuilt the link around an async Python server. Hardware
-          ran on <b>Arduino with AprilTag camera localisation</b>.
-        </p>
-        <div class="research-tools">
-          <span class="pill">MATLAB</span>
-          <span class="pill">Simulink</span>
-          <span class="pill">Digital Twin</span>
-          <span class="pill">Arduino</span>
-          <span class="pill">Python</span>
-          <span class="pill">Pure Pursuit</span>
-          <span class="pill">AprilTag</span>
-          <span class="pill">Multi-Agent</span>
+        <div class="pj-figs two">
+        <figure class="pj-fig dark" data-full="assets/projects/asv-01.jpg" data-cap="Real-time digital-twin dashboard: 3D vessel replica synced to live pose with per-motor voltage, current, power and XY-trajectory telemetry.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/asv-01.jpg" width="1180" height="878" loading="lazy" decoding="async" alt="Real-time digital-twin dashboard: 3D vessel replica synced to live pose with per-motor voltage, current, power and XY-trajectory telemetry."></div>
+          <figcaption>Real-time digital-twin dashboard: 3D vessel replica synced to live pose with per-motor voltage, current, power and XY-trajectory telemetry.</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/asv-02.jpg" data-cap="Pose-estimation pipeline: AprilTag-tagged tug and tanker, overhead-camera detections, and the resulting live digital replica.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/asv-02.jpg" width="1180" height="445" loading="lazy" decoding="async" alt="Pose-estimation pipeline: AprilTag-tagged tug and tanker, overhead-camera detections, and the resulting live digital replica."></div>
+          <figcaption>Pose-estimation pipeline: AprilTag-tagged tug and tanker, overhead-camera detections, and the resulting live digital replica.</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/asv-03.jpg" data-cap="Live overhead tracking of a tug against a preset path, with real-time trajectory, look-ahead radius and latency readout.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/asv-03.jpg" width="1180" height="806" loading="lazy" decoding="async" alt="Live overhead tracking of a tug against a preset path, with real-time trajectory, look-ahead radius and latency readout."></div>
+          <figcaption>Live overhead tracking of a tug against a preset path, with real-time trajectory, look-ahead radius and latency readout.</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/asv-04.jpg" data-cap="Control-hardware architecture: 7.4 V LiPo, Arduino UNO WiFi MCU and TB9051FTG dual driver to the twin motors.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/asv-04.jpg" width="1180" height="712" loading="lazy" decoding="async" alt="Control-hardware architecture: 7.4 V LiPo, Arduino UNO WiFi MCU and TB9051FTG dual driver to the twin motors."></div>
+          <figcaption>Control-hardware architecture: 7.4 V LiPo, Arduino UNO WiFi MCU and TB9051FTG dual driver to the twin motors.</figcaption>
+        </figure>
         </div>
+        <div class="pj-cols">
+          <div>
+            <div class="pj-block"><div class="pj-label">// Overview</div><p class="pj-para">A cooperative fleet of autonomous tugboats for unpowered tanker escort, built as an MSc group project. I built the MATLAB 3D digital twin (animated hull and water, live telemetry dashboard, historical-playback and live-tracking modes) and owned the MATLAB control and comms. I traced the main bottleneck to WiFi latency and rebuilt the link around an async Python server. Hardware ran on Arduino with AprilTag camera localisation.</p></div>
+            <div class="pj-block"><div class="pj-label">// Method</div><ol class="pj-method"><li>Split the fleet into work packages; owned control hardware, manual-control software and the digital twin</li><li>Estimated vessel pose from overhead AprilTags (rotation/translation) into a real-time digital replica</li><li>Chose the comms protocol with a multi-criteria decision matrix, then built a TCP/IP star network</li><li>Traced the latency bottleneck to WiFi and rebuilt the link around an async Python server</li><li>Demonstrated cooperative tanker manipulation at laboratory scale with live telemetry</li></ol></div>
+          </div>
+          <div>
+            <div class="pj-block"><div class="pj-label">// Highlights</div><ul class="pj-results"><li>Real-time digital twin driven by <b>overhead AprilTag</b> pose-estimation → live vessel replica</li><li>Comms validated at <b>0% packet loss</b> and <b>100% TCP</b> command delivery (~40 ms sync residual)</li><li><b>Wi-Fi 5</b> backbone selected via a weighted decision matrix (9.1/10) over ESP-NOW, BLE, LoRa</li><li><b>250–500 ms</b> end-to-end control loop; asynchronous parallel dispatch across multiple hulls</li><li>Balanced cooperative pushing forces achieved a tank-scale tanker-docking demonstration</li></ul></div>
+            <div class="pj-block"><div class="pj-label">// Tools &amp; methods</div><div class="pj-pills"><span class="pill">MATLAB</span><span class="pill">Simulink</span><span class="pill">Digital Twin</span><span class="pill">Arduino</span><span class="pill">Python</span><span class="pill">Pure Pursuit</span><span class="pill">AprilTag</span><span class="pill">Multi-Agent</span><span class="pill">Wi-Fi/TCP</span></div></div>
+          </div>
+        </div>
+        <div class="pj-note">Team of six (Group E3). My contribution: control hardware, manual-control software and the MATLAB digital twin &amp; comms.</div>
       </div>
     </div>
-
-    <div class="research v3 reveal">
-      <div class="research-side">
-        <div class="label">// BENG THESIS · UNIWA</div>
-        <h3>Identification of Constitutive Material Parameters in AM Structures using AI</h3>
-        <p class="deck">An FEA and machine-learning workflow for predicting the properties of 3D-printed laminates.</p>
+    <div class="pj-card flag" role="button" tabindex="0" data-pj="beng" aria-label="Open project dossier: Constitutive Material Parameters in AM Structures using AI">
+      <div class="pj-shot">
+        <span class="pj-tag">THESIS · BEng</span>
+        <span class="pj-disc">AI · FEA · MATERIALS</span>
+        <img src="assets/projects/beng-01.jpg" width="1162" height="627" loading="lazy" decoding="async" alt="GA-driven inverse FEA: experimental vs simulated force–displacement fit for a specimen (identification error 0.0043).">
       </div>
+      <div class="pj-body">
+        <div class="pj-name">Constitutive Material Parameters in AM Structures using AI</div>
+        <div class="pj-metric">Neural-net + GA inverse-FEA · identifies <b>6 orthotropic constants</b> of 3D-printed PLA</div>
+        <div class="pj-toolrow"><span class="pj-tool">MATLAB</span><span class="pj-tool">Neural Net</span><span class="pj-tool">Genetic Algorithms</span><span class="pj-tool">Abaqus</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+      </div>
+      <div class="pj-detail" hidden>
+        <div class="pj-eyebrow">THESIS · BEng · BEng THESIS · UNIVERSITY OF WEST ATTICA</div>
+        <h3 class="pj-h" data-pj-title>Constitutive Material Parameters in AM Structures using AI</h3>
+        <p class="pj-sub">An FEA and machine-learning workflow for predicting the properties of 3D-printed laminates.</p>
 
-      <div class="research-main">
-        <p>
-          <b>An AI-optimisation workflow that predicts 3D-printed material behaviour and cuts physical
-          testing.</b>
-        </p>
-        <p>
-          Built an <b>LSTM model in MATLAB</b> and used <b>Genetic Algorithms</b> to optimise the FEA,
-          so machine learning, simulation and material science ran as one pipeline. Modelled FDM layers
-          as orthotropic plies under classical laminate theory to capture the anisotropy, then predicted
-          stress–strain response. The workflow replaced much of the physical testing for a hard-to-model
-          material class.
-        </p>
-        <div class="research-tools">
-          <span class="pill">MATLAB</span>
-          <span class="pill">LSTM</span>
-          <span class="pill">Genetic Algorithms</span>
-          <span class="pill">FEA</span>
-          <span class="pill">Classical Laminate Theory</span>
-          <span class="pill">FDM</span>
-          <span class="pill">DoE</span>
+        <div class="pj-figs two">
+        <figure class="pj-fig" data-full="assets/projects/beng-01.jpg" data-cap="GA-driven inverse FEA: experimental vs simulated force–displacement fit for a specimen (identification error 0.0043).">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/beng-01.jpg" width="1162" height="627" loading="lazy" decoding="async" alt="GA-driven inverse FEA: experimental vs simulated force–displacement fit for a specimen (identification error 0.0043)."></div>
+          <figcaption>GA-driven inverse FEA: experimental vs simulated force–displacement fit for a specimen (identification error 0.0043).</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/beng-02.jpg" data-cap="Neural-net accuracy per elastic constant — RMSE, relative RMSE and R² for E₁, E₂, ν, G₁₂, G₁₃, G₂₃.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/beng-02.jpg" width="900" height="300" loading="lazy" decoding="async" alt="Neural-net accuracy per elastic constant — RMSE, relative RMSE and R² for E₁, E₂, ν, G₁₂, G₁₃, G₂₃."></div>
+          <figcaption>Neural-net accuracy per elastic constant — RMSE, relative RMSE and R² for E₁, E₂, ν, G₁₂, G₁₃, G₂₃.</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/beng-03.jpg" data-cap="Hybrid GA–FEA loop: a MATLAB genetic algorithm drives Abaqus tensile FEA to invert six orthotropic constants.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/beng-03.jpg" width="914" height="777" loading="lazy" decoding="async" alt="Hybrid GA–FEA loop: a MATLAB genetic algorithm drives Abaqus tensile FEA to invert six orthotropic constants."></div>
+          <figcaption>Hybrid GA–FEA loop: a MATLAB genetic algorithm drives Abaqus tensile FEA to invert six orthotropic constants.</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/beng-04.jpg" data-cap="FDM print orientations (flat / on-edge / upright) and raster-angle laminate schematic for the orthotropic ply model.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/beng-04.jpg" width="850" height="439" loading="lazy" decoding="async" alt="FDM print orientations (flat / on-edge / upright) and raster-angle laminate schematic for the orthotropic ply model."></div>
+          <figcaption>FDM print orientations (flat / on-edge / upright) and raster-angle laminate schematic for the orthotropic ply model.</figcaption>
+        </figure>
         </div>
+        <div class="pj-cols">
+          <div>
+            <div class="pj-block"><div class="pj-label">// Overview</div><p class="pj-para">An AI-optimisation workflow that predicts 3D-printed material behaviour and cuts physical testing. Built an LSTM model in MATLAB and used Genetic Algorithms to optimise the FEA, so machine learning, simulation and material science ran as one pipeline. Modelled FDM layers as orthotropic plies under classical laminate theory to capture the anisotropy, then predicted stress–strain response. The workflow replaced much of the physical testing for a hard-to-model material class.</p></div>
+            <div class="pj-block"><div class="pj-label">// Method</div><ol class="pj-method"><li>Modelled FDM-printed layers as orthotropic plies via classical laminate theory</li><li>Ran a GA-driven inverse FEA in Abaqus to identify six elastic constants per specimen</li><li>Trained neural networks to predict each stiffness from the print parameters</li><li>Validated with leave-one-out cross-validation and bagging across 24 specimens</li><li>Combined machine learning, FEA and material science into one identification pipeline</li></ol></div>
+          </div>
+          <div>
+            <div class="pj-block"><div class="pj-label">// Highlights</div><ul class="pj-results"><li>Identifies <b>6 orthotropic elastic constants</b> (E₁,E₂,ν,G₁₂,G₁₃,G₂₃) of FDM-printed PLA from print parameters</li><li>GA-driven <b>inverse FEA</b> in Abaqus: mean identification error <b>0.0022</b> (flat), <b>0.0066</b> (on-edge)</li><li>Neural network reaches <b>R² ≈ 0.78</b> and <b>~8–9%</b> relative RMSE on the primary stiffnesses</li><li>Trained on <b>24 PLA tensile specimens</b> (ASTM D3039) with leave-one-out cross-validation + bagging</li><li>GA runs ~<b>172 Abaqus evaluations in ~70 s</b> per specimen (population 30, ≤60 generations)</li></ul></div>
+            <div class="pj-block"><div class="pj-label">// Tools &amp; methods</div><div class="pj-pills"><span class="pill">MATLAB</span><span class="pill">Neural Network</span><span class="pill">Genetic Algorithms</span><span class="pill">Abaqus FEA</span><span class="pill">Classical Laminate Theory</span><span class="pill">FDM</span><span class="pill">DoE</span></div></div>
+          </div>
+        </div>
+        <div class="pj-note">Individual BEng thesis, University of West Attica. (Predictor is a feed-forward neural network; see note on the site copy.)</div>
       </div>
+    </div>
     </div>
 
 <!-- ═══════════ MSC PROJECT DOSSIERS ═══════════ -->
