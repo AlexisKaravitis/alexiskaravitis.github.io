@@ -45,6 +45,7 @@
   "givenName": "Alexandros",
   "familyName": "Karavitis",
   "url": "https://alexiskaravitis.github.io/",
+  "sameAs": ["https://www.linkedin.com/in/alexandros-karavitis/"],
   "image": "https://alexiskaravitis.github.io/assets/og-cover.jpg",
   "jobTitle": "Mechanical Design Engineer",
   "email": "mailto:Alexis.Karavitis.978@cranfield.ac.uk",
@@ -1508,6 +1509,12 @@ a { color: inherit; text-decoration: none; }
 .pj-shot { transition: background 0.3s ease; }
 .pj-card:not(.hero-dark):hover .pj-shot { background: var(--surface); }
 .pj-card.flag .pj-name { font-size: 20px; }
+.pj-shot-placard { background: var(--bg-2); }
+.pj-placard { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: left; padding: 4px 6px; }
+.pj-placard .pp-k, .pj-placard .pp-v { font-family: 'Saira Condensed', sans-serif; font-weight: 800; font-size: 27px; line-height: 1.02; letter-spacing: -0.01em; }
+.pj-placard .pp-k { color: var(--text); }
+.pj-placard .pp-v { color: var(--accent-2); }
+.pj-placard .pp-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-top: 10px; }
 /* fill ragged last grid cells so the 1px-line pattern doesn't leak */
 @media (min-width: 1000px) { .pj-grid:not(.flagship)::after { content: ''; background: var(--bg-2); } }
 @media (min-width: 640px) and (max-width: 999px) { .pj-grid.flagship::after { content: ''; background: var(--bg-2); } }
@@ -1700,6 +1707,8 @@ h2.title { scroll-margin-top: 84px; }
   margin-bottom: 50px;
 }
 @media (min-width: 720px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+/* fill the odd trailing cell so the 1px-line pattern doesn't leak a bright ghost cell */
+@media (min-width: 720px) { .contact-grid::after { content: ''; background: var(--bg); } }
 
 .contact-item {
   background: var(--bg);
@@ -1709,6 +1718,8 @@ h2.title { scroll-margin-top: 84px; }
   cursor: pointer;
 }
 .contact-item:hover { background: var(--surface); }
+.contact-item.li .lbl { color: var(--blueprint); }
+.contact-item.li:hover { background: rgba(79,195,247,0.06); }
 .contact-item .lbl {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10.5px;
@@ -2074,6 +2085,9 @@ h2.title { scroll-margin-top: 84px; }
           </a>
           <a href="mailto:Alexis.Karavitis.978@cranfield.ac.uk" class="btn">
             Email Direct <span class="arr">↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/alexandros-karavitis/" class="btn" target="_blank" rel="noopener">
+            LinkedIn <span class="arr">↗</span>
           </a>
         </div>
 
@@ -2931,55 +2945,33 @@ h2.title { scroll-margin-top: 84px; }
       </div>
     </article>
     <article class="pj-card" data-pj="cd">
-      <div class="pj-shot">
+      <div class="pj-shot pj-shot-placard">
         <span class="pj-tag">PRJ-06</span>
         <span class="pj-disc">PRODUCT · CAD</span>
-        <img src="assets/projects/cd-01-sm.jpg" width="1180" height="604" loading="lazy" decoding="async" alt="KeyShot render of docking station: wooden planter, removable compost bin and robot docked in charging bay">
+        <div class="pj-placard"><span class="pp-k">Product Design</span><span class="pp-v">CAD · Rendering</span><span class="pp-sub">SolidWorks · KeyShot</span></div>
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">Garden Gobbler — Autonomous Robot (CAD &amp; Rendering)</h3>
-        <div class="pj-metric">SolidWorks + KeyShot design lead · two-part robot &amp; dock system</div>
+        <h3 class="pj-name">User-Centred Product Design &amp; CAD Visualisation</h3>
+        <div class="pj-metric">CAD &amp; rendering lead on a team product-design project</div>
         <div class="pj-toolrow"><span class="pj-tool">SolidWorks</span><span class="pj-tool">KeyShot</span><span class="pj-tool">Double Diamond</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: Garden Gobbler — Autonomous Robot (CAD &amp; Rendering)">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: User-Centred Product Design &amp; CAD Visualisation">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-06 · PRODUCT · CAD · COMPONENT DESIGN · CRANFIELD MSc · TEAM PROJECT</div>
-        <h3 class="pj-h" data-pj-title>Garden Gobbler — Autonomous Robot (CAD &amp; Rendering)</h3>
-        <p class="pj-sub">An autonomous leaf-collecting garden robot and multifunctional docking station, taken from user research through to photoreal CAD.</p>
+        <h3 class="pj-h" data-pj-title>User-Centred Product Design &amp; CAD Visualisation</h3>
+        <p class="pj-sub">A team product-design project taken from user research through to photoreal CAD, following a structured Double Diamond process.</p>
         <div class="pj-role">TEAM OF 6 — Alexandros’s contribution: SolidWorks CAD modelling plus all KeyShot renders and animations, and early concept direction.</div>
-        <div class="pj-figs two">
-        <figure class="pj-fig" data-full="assets/projects/cd-01.jpg" data-cap="KeyShot render of docking station: wooden planter, removable compost bin and robot docked in charging bay">
-          <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/cd-01.jpg" width="1180" height="604" loading="lazy" decoding="async" alt="KeyShot render of docking station: wooden planter, removable compost bin and robot docked in charging bay"></div>
-          <figcaption>KeyShot render of docking station: wooden planter, removable compost bin and robot docked in charging bay</figcaption>
-        </figure>
-        <figure class="pj-fig" data-full="assets/projects/cd-02.jpg" data-cap="Annotated three-quarter renders of main unit: camera/sensor pod, leaf inlet grader and salt dispenser">
-          <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/cd-02.jpg" width="1180" height="551" loading="lazy" decoding="async" alt="Annotated three-quarter renders of main unit: camera/sensor pod, leaf inlet grader and salt dispenser"></div>
-          <figcaption>Annotated three-quarter renders of main unit: camera/sensor pod, leaf inlet grader and salt dispenser</figcaption>
-        </figure>
-        <figure class="pj-fig" data-full="assets/projects/cd-03.jpg" data-cap="Three-quarter KeyShot render of tracked autonomous main unit with sensor pod and leaf-collection inlet">
-          <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/cd-03.jpg" width="1180" height="748" loading="lazy" decoding="async" alt="Three-quarter KeyShot render of tracked autonomous main unit with sensor pod and leaf-collection inlet"></div>
-          <figcaption>Three-quarter KeyShot render of tracked autonomous main unit with sensor pod and leaf-collection inlet</figcaption>
-        </figure>
-        <figure class="pj-fig" data-full="assets/projects/cd-04.jpg" data-cap="Material study of docking bench: ABS casing versus wood-clad variant with integrated flowerpot">
-          <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/cd-04.jpg" width="1180" height="485" loading="lazy" decoding="async" alt="Material study of docking bench: ABS casing versus wood-clad variant with integrated flowerpot"></div>
-          <figcaption>Material study of docking bench: ABS casing versus wood-clad variant with integrated flowerpot</figcaption>
-        </figure>
-        </div>
         <div class="pj-cols">
           <div>
-            <div class="pj-block"><div class="pj-label">// Summary</div><p class="pj-para">Concept design of an autonomous outdoor robot that collects fallen leaves and returns to a docking station for charging, unloading and composting. A six-person team followed a Double Diamond process — from stakeholder analysis and a cardboard prototype to a refined two-part architecture pairing a tracked main unit with a garden-integrated docking station. Alexandros led the SolidWorks CAD modelling and produced all KeyShot renders and animations used to communicate the concept.</p></div>
-            <div class="pj-block"><div class="pj-label">// Method</div><ol class="pj-method"><li>Framed the brief with the Double Diamond process across seven candidate spaces</li><li>Derived weighted requirements from stakeholder analysis and a user persona</li><li>Combined preferred sub-solutions into one two-part architecture</li><li>Built and tested a low-fidelity cardboard prototype for proportions and layout</li><li>Refined in SolidWorks and produced photoreal KeyShot renders and animations</li></ol></div>
+            <div class="pj-block"><div class="pj-label">// Summary</div><p class="pj-para">A user-centred product-design project developed by a six-person team using the Double Diamond process — from stakeholder analysis and weighted requirements through low-fidelity prototyping to a refined product architecture. Alexandros led the SolidWorks CAD modelling and produced all of the KeyShot renders and animations used to communicate the concept.</p></div>
+            <div class="pj-block"><div class="pj-label">// Method</div><ol class="pj-method"><li>Framed the brief with the Double Diamond process across several candidate directions</li><li>Derived weighted requirements from stakeholder analysis and a user persona</li><li>Combined the preferred sub-solutions into one coherent product architecture</li><li>Built and tested a low-fidelity prototype for proportions and layout</li><li>Refined the design in SolidWorks and produced photoreal KeyShot renders and animations</li></ol></div>
           </div>
           <div>
-            <div class="pj-block"><div class="pj-label">// Key results</div><ul class="pj-results"><li>Owned the <b>SolidWorks CAD</b> and all <b>KeyShot</b> renders and animations</li><li>Two-part architecture: tracked main unit + multifunctional docking station</li><li>Main unit integrates <b>6 features</b> — leaf collection, gritter, object detection, sentry mode…</li><li>Docking station combines charging, twin compost bins, a bench and a planter</li><li>Requirements weighted from <b>6 stakeholder groups</b> and a user persona</li></ul></div>
+            <div class="pj-block"><div class="pj-label">// Key results</div><ul class="pj-results"><li>Owned the <b>SolidWorks CAD</b> and all <b>KeyShot</b> renders and animations</li><li>Led the concept from user research to a refined product architecture</li><li>Requirements weighted from <b>6 stakeholder groups</b> and a defined user persona</li><li>Validated proportions and layout with a low-fidelity prototype before CAD</li><li>Communicated the final design through photoreal renders and animation</li></ul></div>
             <div class="pj-block"><div class="pj-label">// Tools &amp; methods</div><div class="pj-pills"><span class="pill">SolidWorks</span><span class="pill">KeyShot</span><span class="pill">Double Diamond</span><span class="pill">Weighted requirements</span><span class="pill">User persona</span><span class="pill">Prototyping</span></div></div>
           </div>
         </div>
-        <div class="pj-note">Team project; renders and CAD are the author’s own contribution.</div>
+        <div class="pj-note">Team project; the CAD modelling and rendering are the author’s own contribution.</div>
       </div>
     </article>
     <article class="pj-card" data-pj="fpv">
@@ -3250,6 +3242,11 @@ h2.title { scroll-margin-top: 84px; }
         <div class="lbl">→ EMAIL · PRIMARY</div>
         <div class="val">Alexis.Karavitis.978<br>@cranfield.ac.uk</div>
         <div class="sub">Reply within 24h · UK time</div>
+      </a>
+      <a class="contact-item li reveal" href="https://www.linkedin.com/in/alexandros-karavitis/" target="_blank" rel="noopener">
+        <div class="lbl">→ LINKEDIN · CONNECT</div>
+        <div class="val">/in/alexandros<br>-karavitis</div>
+        <div class="sub">Connect &amp; message me here</div>
       </a>
       <a class="contact-item reveal" href="tel:+447442717485">
         <div class="lbl">→ PHONE · UK</div>
