@@ -63,7 +63,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Saira+Condensed:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800;900&family=Saira+Condensed:wght@500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:        #0A0A0B;
@@ -86,7 +86,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Saira', sans-serif;
@@ -1329,13 +1329,13 @@ a { color: inherit; text-decoration: none; }
 .pj-shot .pj-tag {
   position: absolute; top: 10px; left: 11px; z-index: 2;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 9.5px; letter-spacing: 0.18em; font-weight: 700;
+  font-size: 9px; letter-spacing: 0.16em; font-weight: 700;
   color: var(--accent);
 }
 .pj-shot .pj-disc {
   position: absolute; top: 10px; right: 11px; z-index: 2;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--bg); background: var(--accent-2);
   padding: 3px 7px; border-radius: 3px; font-weight: 700;
 }
@@ -1354,9 +1354,9 @@ a { color: inherit; text-decoration: none; }
 .pj-toolrow { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 13px; }
 .pj-tool {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase;
+  font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--text-dim); border: 1px solid var(--line-2);
-  padding: 3px 9px; border-radius: 100px;
+  padding: 3px 7px; border-radius: 3px;
 }
 .pj-open {
   margin-top: auto; padding-top: 14px;
@@ -1373,14 +1373,9 @@ a { color: inherit; text-decoration: none; }
 .pj-modal {
   position: fixed; inset: 0; z-index: 190;
   background: rgba(6,6,8,0.9);
+  backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
   display: none; padding: 4vh 20px;
   overflow-y: auto;
-  overscroll-behavior: contain;
-}
-.pj-modal::before {
-  content: ''; position: fixed; inset: 0; z-index: -1;
-  backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
-  pointer-events: none;
 }
 .pj-modal.open { display: block; animation: lbIn 0.28s ease; }
 .pj-panel {
@@ -1501,26 +1496,7 @@ a { color: inherit; text-decoration: none; }
 .pj-grid.flagship { margin-bottom: 30px; }
 .pj-card.flag { border-top: 2px solid var(--accent); }
 .pj-card.flag .pj-tag { color: var(--accent-2); }
-.pj-card.flag .pj-disc { background: var(--accent); color: var(--bg); }
-.pj-card.hero-dark .pj-shot { background: #000; }
-.pj-card.hero-dark .pj-shot::before, .pj-fig.dark .pj-fig-img::before { opacity: 0.14; }
-.pj-fig.dark .pj-fig-img { background: #000; }
-.pj-shot { transition: background 0.3s ease; }
-.pj-card:not(.hero-dark):hover .pj-shot { background: var(--surface); }
-.pj-card.flag .pj-name { font-size: 20px; }
-/* fill ragged last grid cells so the 1px-line pattern doesn't leak */
-@media (min-width: 1000px) { .pj-grid:not(.flagship)::after { content: ''; background: var(--bg-2); } }
-@media (min-width: 640px) and (max-width: 999px) { .pj-grid.flagship::after { content: ''; background: var(--bg-2); } }
-@media (max-width: 719.98px) { .metrics-grid::after { content: ''; background: var(--bg-2); } }
-h2.title { scroll-margin-top: 84px; }
-.pj-award {
-  margin-top: 11px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--accent-2); line-height: 1.45;
-  border: 1px solid rgba(255,184,0,0.3); background: rgba(255,184,0,0.06);
-  padding: 6px 9px; border-radius: 3px;
-}
+.pj-card.flag .pj-disc { background: var(--accent); color: #fff; }
 .pj-note {
   margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line);
   font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.04em;
@@ -1641,7 +1617,7 @@ h2.title { scroll-margin-top: 84px; }
   display: block;
   line-height: 1;
 }
-.interest-block h3 {
+.interest-block h4 {
   font-family: 'Saira Condensed', sans-serif;
   font-weight: 800;
   font-size: 18px;
@@ -2454,7 +2430,7 @@ h2.title { scroll-margin-top: 84px; }
       <span class="num">§05</span>
       <h2 class="title" id="sec-6">PROJECTS &amp; RESEARCH</h2>
       <span class="live">LIVE · IN PROGRESS</span>
-      <span class="meta">SELECTED · 2020 → 2026</span>
+      <span class="meta">SELECTED · 2024 → 2026</span>
     </div>
 
 <!-- ═══════════ FLAGSHIP DOSSIERS · THESES & AWARD ═══════════ -->
@@ -2466,27 +2442,27 @@ h2.title { scroll-margin-top: 84px; }
     </div>
 
     <div class="pj-grid flagship reveal-stagger">
-    <article class="pj-card flag" data-pj="msc-thesis">
+    <div class="pj-card flag" role="button" tabindex="0" data-pj="msc-thesis" aria-label="Open project dossier: Fatigue-Testing Machine for Elastomer Life Characterization">
       <div class="pj-shot">
         <span class="pj-tag">THESIS · MSc</span>
         <span class="pj-disc">DESIGN · DYNAMICS · FEA</span>
-        <picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/projects/msc-thesis-01-static.jpg"><img src="assets/projects/msc-thesis-01.gif" width="1089" height="627" loading="lazy" decoding="async" alt="Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs."></picture>
+        <img src="assets/projects/msc-thesis-01.gif" width="1089" height="627" loading="lazy" decoding="async" alt="Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs.">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">Fatigue-Testing Machine for Elastomer Life Characterization</h3>
+        <div class="pj-name">Fatigue-Testing Machine for Elastomer Life Characterization</div>
         <div class="pj-metric">Slider-crank rig · 2.2 kW / <b>98 kg</b> flywheel · 3-solver-validated dynamic model</div>
         <div class="pj-toolrow"><span class="pj-tool">MATLAB</span><span class="pj-tool">Simulink</span><span class="pj-tool">CATIA V5</span><span class="pj-tool">FEA</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: Fatigue-Testing Machine for Elastomer Life Characterization">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
-        <div class="pj-eyebrow">THESIS · MSc · CRANFIELD · IN PROGRESS</div>
+        <div class="pj-eyebrow">THESIS · MSc · MSc THESIS · CRANFIELD · IN PROGRESS</div>
         <h3 class="pj-h" data-pj-title>Fatigue-Testing Machine for Elastomer Life Characterization</h3>
         <p class="pj-sub">A purpose-built rig for measuring the fatigue life of elastomers under cyclic loading, designed end to end from dynamics to manufacturable hardware.</p>
 
         <div class="pj-figs two">
         <figure class="pj-fig" data-full="assets/projects/msc-thesis-01.gif" data-cap="Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs.">
           <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/projects/msc-thesis-01-static.jpg"><img src="assets/projects/msc-thesis-01.gif" width="1089" height="627" loading="lazy" decoding="async" alt="Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs."></picture></div>
+          <div class="pj-fig-img"><img src="assets/projects/msc-thesis-01.gif" width="1089" height="627" loading="lazy" decoding="async" alt="Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs."></div>
           <figcaption>Live dynamic model of the rig — animated slider-crank with crank-torque, per-specimen heat and force, and the sized outputs.</figcaption>
         </figure>
         <figure class="pj-fig" data-full="assets/projects/msc-thesis-02.jpg" data-cap="Optimisation study: objective surface, six-solver agreement and a 4000-sample search converging on the optimum.">
@@ -2501,7 +2477,7 @@ h2.title { scroll-margin-top: 84px; }
         </figure>
         <figure class="pj-fig" data-full="assets/projects/msc-thesis-04.gif" data-cap="Reworked “diabolo” specimen at +250% strain in the resized 3-station variant.">
           <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/projects/msc-thesis-04-static.jpg"><img src="assets/projects/msc-thesis-04.gif" width="792" height="456" loading="lazy" decoding="async" alt="Reworked “diabolo” specimen at +250% strain in the resized 3-station variant."></picture></div>
+          <div class="pj-fig-img"><img src="assets/projects/msc-thesis-04.gif" width="792" height="456" loading="lazy" decoding="async" alt="Reworked “diabolo” specimen at +250% strain in the resized 3-station variant."></div>
           <figcaption>Reworked “diabolo” specimen at +250% strain in the resized 3-station variant.</figcaption>
         </figure>
         </div>
@@ -2517,22 +2493,21 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual MSc thesis, in progress. Rubber-law coefficients are provisional placeholders pending measured Dunlop test data; they rescale magnitudes, not the method.</div>
       </div>
-    </article>
-    <article class="pj-card flag hero-dark" data-pj="asv">
+    </div>
+    <div class="pj-card flag hero-dark" role="button" tabindex="0" data-pj="asv" aria-label="Open project dossier: Digital Twin &amp; Demonstration of Autonomous Surface Vessels">
       <div class="pj-shot">
         <span class="pj-tag">GROUP PROJECT · MSc</span>
         <span class="pj-disc">DIGITAL TWIN · CONTROLS</span>
-        <img src="assets/projects/asv-01-sm.jpg" width="1180" height="878" loading="lazy" decoding="async" alt="Real-time digital-twin dashboard: 3D vessel replica synced to live pose with per-motor voltage, current, power and XY-trajectory telemetry.">
+        <img src="assets/projects/asv-01.jpg" width="1180" height="878" loading="lazy" decoding="async" alt="Real-time digital-twin dashboard: 3D vessel replica synced to live pose with per-motor voltage, current, power and XY-trajectory telemetry.">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">Digital Twin &amp; Demonstration of Autonomous Surface Vessels</h3>
-        <div class="pj-metric">Award-winning cooperative tug fleet · <b>0% packet loss</b> · 100% TCP delivery</div>
-        <div class="pj-award"><span aria-hidden="true">★</span> Best Group Project Presentation Award — Cranfield AME</div>
+        <div class="pj-name">Digital Twin &amp; Demonstration of Autonomous Surface Vessels</div>
+        <div class="pj-metric">Award-winning cooperative tug fleet · <b>0% packet loss</b> · &lt;50 ms sync lag</div>
         <div class="pj-toolrow"><span class="pj-tool">MATLAB</span><span class="pj-tool">Digital Twin</span><span class="pj-tool">AprilTag</span><span class="pj-tool">Python</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: Digital Twin &amp; Demonstration of Autonomous Surface Vessels">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
-        <div class="pj-eyebrow">GROUP PROJECT · MSc · CRANFIELD · GROUP E3</div>
+        <div class="pj-eyebrow">GROUP PROJECT · MSc · MSc GROUP PROJECT · CRANFIELD · GROUP E3</div>
         <h3 class="pj-h" data-pj-title>Digital Twin &amp; Demonstration of Autonomous Surface Vessels</h3>
         <p class="pj-sub">A cooperative ASV fleet for unpowered tanker escort, with a full digital twin built to visualise live and historical telemetry.</p>
         <div class="award-badge" style="margin:16px 0 4px;">
@@ -2571,18 +2546,18 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Team of six (Group E3). My contribution: control hardware, manual-control software and the MATLAB digital twin &amp; comms.</div>
       </div>
-    </article>
-    <article class="pj-card flag" data-pj="beng">
+    </div>
+    <div class="pj-card flag" role="button" tabindex="0" data-pj="beng" aria-label="Open project dossier: Constitutive Material Parameters in AM Structures using AI">
       <div class="pj-shot">
         <span class="pj-tag">THESIS · UNIWA</span>
         <span class="pj-disc">AI · FEA · MATERIALS</span>
-        <img src="assets/projects/beng-01-sm.jpg" width="1180" height="538" loading="lazy" decoding="async" alt="Abaqus S-Mises stress envelope on the AM specimen model (deformation ×50), from the inverse-identification FEA.">
+        <img src="assets/projects/beng-01.jpg" width="1180" height="538" loading="lazy" decoding="async" alt="Abaqus S-Mises stress envelope on the AM specimen model (deformation ×50), from the inverse-identification FEA.">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">Constitutive Material Parameters in AM Structures using AI</h3>
+        <div class="pj-name">Constitutive Material Parameters in AM Structures using AI</div>
         <div class="pj-metric">Neural-net + GA inverse-FEA · identifies <b>6 orthotropic constants</b> of 3D-printed PLA</div>
         <div class="pj-toolrow"><span class="pj-tool">MATLAB</span><span class="pj-tool">Neural Net</span><span class="pj-tool">Genetic Algorithms</span><span class="pj-tool">Abaqus</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: Constitutive Material Parameters in AM Structures using AI">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">THESIS · UNIWA · BEng · 5-YEAR INTEGRATED MASTER’S · MECHANICAL ENGINEERING</div>
@@ -2596,7 +2571,7 @@ h2.title { scroll-margin-top: 84px; }
           <figcaption>Abaqus S-Mises stress envelope on the AM specimen model (deformation ×50), from the inverse-identification FEA.</figcaption>
         </figure>
         <figure class="pj-fig video">
-          <div class="pj-fig-img"><video src="assets/projects/beng-fea.mp4" width="1400" height="638" poster="assets/projects/beng-01.jpg" loop muted playsinline preload="none" aria-label="FEA stress envelope animating through the load cycle (Abaqus/Standard)."></video></div>
+          <div class="pj-fig-img"><video src="assets/projects/beng-fea.mp4" width="1400" height="638" poster="assets/projects/beng-01.jpg" autoplay loop muted playsinline preload="metadata"></video></div>
           <figcaption>FEA stress envelope animating through the load cycle (Abaqus/Standard).</figcaption>
         </figure>
         <figure class="pj-fig" data-full="assets/projects/beng-02.jpg" data-cap="GA-driven inverse FEA: experimental vs simulated force–displacement fit (identification error 0.0043).">
@@ -2627,38 +2602,8 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual BEng thesis, University of West Attica. (Predictor is a feed-forward neural network; see note on the site copy.)</div>
       </div>
-    </article>
     </div>
-
-    <!-- FEATURE SHOT · Formula Student car on track -->
-    <div class="gallery-head reveal">
-      <span class="bar">▣</span>
-      <span class="t">ON TRACK</span>
-      <span>POSEIDON RACING · FORMULA STUDENT</span>
-      <span class="m">EVIDENCE</span>
     </div>
-
-    <figure class="feature-shot reveal">
-      <span class="fs-corner tl"></span>
-      <span class="fs-corner br"></span>
-      <div class="fs-top">
-        <span>CAR 105 · UNIWA</span>
-        <span class="rec">ON TRACK</span>
-      </div>
-      <img src="assets/formula-student-car-105.jpg" width="1400" height="1130" loading="lazy" decoding="async" alt="University of West Attica Formula Student car, number 105, on track during a competition event">
-      <figcaption class="fs-caption">
-        <div class="left">
-          <div class="num">// THE CAR</div>
-          <div class="ttl">Poseidon Racing &mdash; Car 105</div>
-          <div class="sub">University of West Attica · Formula Student</div>
-        </div>
-        <div class="right">
-          <b>43-person team</b><br>
-          <b>200+ parts</b> in the BOM<br>
-          Endurance finisher · FS East
-        </div>
-      </figcaption>
-    </figure>
 
 <!-- ═══════════ MSC PROJECT DOSSIERS ═══════════ -->
     <div class="gallery-head reveal">
@@ -2670,17 +2615,17 @@ h2.title { scroll-margin-top: 84px; }
     <p class="pj-intro reveal">Eight graded MSc projects — structural FEA, CFD, fluid mechanics, materials &amp; failure analysis, data science, design and project management. Open any dossier for figures, methods and results.</p>
 
     <div class="pj-grid reveal-stagger">
-    <article class="pj-card hero-dark" data-pj="fea">
+    <div class="pj-card hero-dark" role="button" tabindex="0" data-pj="fea" aria-label="Open project dossier: FEA of a Formula Student Differential Mount">
       <div class="pj-shot">
         <span class="pj-tag">PRJ-01</span>
         <span class="pj-disc">STRUCTURAL FEA</span>
-        <img src="assets/projects/fea-01-sm.jpg" width="1180" height="454" loading="lazy" decoding="async" alt="Side-by-side von Mises stress and displacement contour fields on the meshed differential mount">
+        <img src="assets/projects/fea-01.jpg" width="1180" height="454" loading="lazy" decoding="async" alt="Side-by-side von Mises stress and displacement contour fields on the meshed differential mount">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">FEA of a Formula Student Differential Mount</h3>
+        <div class="pj-name">FEA of a Formula Student Differential Mount</div>
         <div class="pj-metric">Safety factor <b>8.4</b> on Al-7075-T6 · four-material trade study</div>
         <div class="pj-toolrow"><span class="pj-tool">Abaqus</span><span class="pj-tool">SolidWorks</span><span class="pj-tool">C3D10</span><span class="pj-tool">Modal</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: FEA of a Formula Student Differential Mount">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-01 · STRUCTURAL FEA · ENGINEERING STRESS ANALYSIS · CRANFIELD MSc</div>
@@ -2691,11 +2636,6 @@ h2.title { scroll-margin-top: 84px; }
           <span class="zoom-hint" aria-hidden="true">⛶</span>
           <div class="pj-fig-img"><img src="assets/projects/fea-01.jpg" width="1180" height="454" loading="lazy" decoding="async" alt="Side-by-side von Mises stress and displacement contour fields on the meshed differential mount"></div>
           <figcaption>Side-by-side von Mises stress and displacement contour fields on the meshed differential mount</figcaption>
-        </figure>
-        <figure class="pj-fig" data-full="assets/fea-structural.jpg" data-cap="Von Mises stress (left) and displacement magnitude (right) with numeric legends — peak 59.9 MPa, max 0.039 mm.">
-          <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/fea-structural.jpg" width="1600" height="567" loading="lazy" decoding="async" alt="Von Mises stress and displacement magnitude contours with numeric legends on the differential mount, solved in Abaqus"></div>
-          <figcaption>Von Mises stress (left) and displacement magnitude (right) with numeric legends — peak 59.9 MPa, max 0.039 mm.</figcaption>
         </figure>
         <figure class="pj-fig dark" data-full="assets/projects/fea-02.jpg" data-cap="Bearing-bore stress concentration detail with refined mesh close-up around the load path">
           <span class="zoom-hint" aria-hidden="true">⛶</span>
@@ -2725,18 +2665,18 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual coursework. Component geometry courtesy of Poseidon Racing; figures shown are the author’s own FEA results.</div>
       </div>
-    </article>
-    <article class="pj-card hero-dark" data-pj="cfd">
+    </div>
+    <div class="pj-card hero-dark" role="button" tabindex="0" data-pj="cfd" aria-label="Open project dossier: CFD of a Gurney-Flap Aerofoil">
       <div class="pj-shot">
         <span class="pj-tag">PRJ-02</span>
         <span class="pj-disc">CFD / AERO</span>
-        <img src="assets/projects/cfd-01-sm.jpg" width="622" height="302" loading="lazy" decoding="async" alt="Static-pressure contour field around the aerofoil, showing the high-pressure stagnation zone and low-pressure wake.">
+        <img src="assets/projects/cfd-01.jpg" width="622" height="302" loading="lazy" decoding="async" alt="Static-pressure contour field around the aerofoil, showing the high-pressure stagnation zone and low-pressure wake.">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">CFD of a Gurney-Flap Aerofoil</h3>
+        <div class="pj-name">CFD of a Gurney-Flap Aerofoil</div>
         <div class="pj-metric">Gurney flap: <b>+46% lift</b> · efficiency <b>28.4 → 33.3</b> at low speed</div>
         <div class="pj-toolrow"><span class="pj-tool">ANSYS Fluent</span><span class="pj-tool">ICEM CFD</span><span class="pj-tool">k-ω SST</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: CFD of a Gurney-Flap Aerofoil">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-02 · CFD / AERO · CFD FOR RENEWABLE ENERGY · CRANFIELD MSc</div>
@@ -2776,18 +2716,18 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual coursework, MSc Advanced Mechanical Engineering.</div>
       </div>
-    </article>
-    <article class="pj-card" data-pj="fluid">
+    </div>
+    <div class="pj-card" role="button" tabindex="0" data-pj="fluid" aria-label="Open project dossier: Aerofoil CFD vs XFOIL + Offshore Wave Loading">
       <div class="pj-shot">
         <span class="pj-tag">PRJ-03</span>
         <span class="pj-disc">FLUID MECH</span>
-        <img src="assets/projects/fluid-01-sm.jpg" width="1047" height="701" loading="lazy" decoding="async" alt="CFD velocity-magnitude contour around a NACA aerofoil: stagnation, thin boundary layer and trailing wake">
+        <img src="assets/projects/fluid-01.jpg" width="1047" height="701" loading="lazy" decoding="async" alt="CFD velocity-magnitude contour around a NACA aerofoil: stagnation, thin boundary layer and trailing wake">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">Aerofoil CFD vs XFOIL + Offshore Wave Loading</h3>
+        <div class="pj-name">Aerofoil CFD vs XFOIL + Offshore Wave Loading</div>
         <div class="pj-metric">2D CFD validated vs XFOIL at Re 53k · <b>1,260 kN</b> monopile wave load</div>
         <div class="pj-toolrow"><span class="pj-tool">ANSYS Fluent</span><span class="pj-tool">XFOIL</span><span class="pj-tool">Morison eq.</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: Aerofoil CFD vs XFOIL + Offshore Wave Loading">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-03 · FLUID MECH · FLUID MECHANICS &amp; LOADING · CRANFIELD MSc</div>
@@ -2827,18 +2767,18 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual coursework, Fluid Mechanics &amp; Loading module.</div>
       </div>
-    </article>
-    <article class="pj-card" data-pj="arf">
+    </div>
+    <div class="pj-card" role="button" tabindex="0" data-pj="arf" aria-label="Open project dossier: Corrosion &amp; Failure Analysis of Marine Steel">
       <div class="pj-shot">
         <span class="pj-tag">PRJ-04</span>
         <span class="pj-disc">MATERIALS</span>
-        <img src="assets/projects/arf-01-sm.jpg" width="1180" height="1033" loading="lazy" decoding="async" alt="SEM/EDS montage: oxygen Kα1 elemental maps and optical micrographs across agitation regimes, surface and cross-section.">
+        <img src="assets/projects/arf-01.jpg" width="1180" height="1033" loading="lazy" decoding="async" alt="SEM/EDS montage: oxygen Kα1 elemental maps and optical micrographs across agitation regimes, surface and cross-section.">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">Corrosion &amp; Failure Analysis of Marine Steel</h3>
+        <div class="pj-name">Corrosion &amp; Failure Analysis of Marine Steel</div>
         <div class="pj-metric">Flow agitation ~doubled corrosion rate · <b>0.09 → 0.26 mm/yr</b></div>
         <div class="pj-toolrow"><span class="pj-tool">Potentiostat</span><span class="pj-tool">SEM/EDS</span><span class="pj-tool">Instron</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: Corrosion &amp; Failure Analysis of Marine Steel">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-04 · MATERIALS · ASSESSING RISK &amp; FAILURE · CRANFIELD MSc</div>
@@ -2878,18 +2818,18 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual coursework. Limited sample size — results are indicative first-order rankings.</div>
       </div>
-    </article>
-    <article class="pj-card" data-pj="report">
+    </div>
+    <div class="pj-card" role="button" tabindex="0" data-pj="report" aria-label="Open project dossier: ML Electricity-Demand Forecaster">
       <div class="pj-shot">
         <span class="pj-tag">PRJ-05</span>
         <span class="pj-disc">DATA / ML</span>
-        <img src="assets/projects/report-01-sm.jpg" width="1180" height="515" loading="lazy" decoding="async" alt="Forecast vs comparable-Tuesday actuals tracking the morning ramp to a 707-unit peak, mean RMSE 19.62">
+        <img src="assets/projects/report-01.jpg" width="1180" height="515" loading="lazy" decoding="async" alt="Forecast vs comparable-Tuesday actuals tracking the morning ramp to a 707-unit peak, mean RMSE 19.62">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">ML Electricity-Demand Forecaster</h3>
+        <div class="pj-name">ML Electricity-Demand Forecaster</div>
         <div class="pj-metric">Seasonal + LightGBM hybrid · <b>19.62 RMSE</b> on half-hourly load</div>
         <div class="pj-toolrow"><span class="pj-tool">Python</span><span class="pj-tool">LightGBM</span><span class="pj-tool">Feature eng.</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: ML Electricity-Demand Forecaster">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-05 · DATA / ML · AI FOR SUSTAINABILITY · CRANFIELD MSc</div>
@@ -2929,18 +2869,18 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual coursework. Dataset provided with the assignment; described in aggregate only.</div>
       </div>
-    </article>
-    <article class="pj-card" data-pj="cd">
+    </div>
+    <div class="pj-card" role="button" tabindex="0" data-pj="cd" aria-label="Open project dossier: Garden Gobbler — Autonomous Robot (CAD &amp; Rendering)">
       <div class="pj-shot">
         <span class="pj-tag">PRJ-06</span>
         <span class="pj-disc">PRODUCT · CAD</span>
-        <img src="assets/projects/cd-01-sm.jpg" width="1180" height="604" loading="lazy" decoding="async" alt="KeyShot render of docking station: wooden planter, removable compost bin and robot docked in charging bay">
+        <img src="assets/projects/cd-01.jpg" width="1180" height="604" loading="lazy" decoding="async" alt="KeyShot render of docking station: wooden planter, removable compost bin and robot docked in charging bay">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">Garden Gobbler — Autonomous Robot (CAD &amp; Rendering)</h3>
+        <div class="pj-name">Garden Gobbler — Autonomous Robot (CAD &amp; Rendering)</div>
         <div class="pj-metric">SolidWorks + KeyShot design lead · two-part robot &amp; dock system</div>
         <div class="pj-toolrow"><span class="pj-tool">SolidWorks</span><span class="pj-tool">KeyShot</span><span class="pj-tool">Double Diamond</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: Garden Gobbler — Autonomous Robot (CAD &amp; Rendering)">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-06 · PRODUCT · CAD · COMPONENT DESIGN · CRANFIELD MSc · TEAM PROJECT</div>
@@ -2981,18 +2921,18 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Team project; renders and CAD are the author’s own contribution.</div>
       </div>
-    </article>
-    <article class="pj-card" data-pj="fpv">
+    </div>
+    <div class="pj-card" role="button" tabindex="0" data-pj="fpv" aria-label="Open project dossier: 52 kWp Floating Solar System Design">
       <div class="pj-shot">
         <span class="pj-tag">PRJ-07</span>
         <span class="pj-disc">SYSTEMS</span>
-        <img src="assets/projects/fpv-01-sm.jpg" width="1180" height="587" loading="lazy" decoding="async" alt="SolidWorks isometric render of modular HDPE float raft assembly for the floating PV array">
+        <img src="assets/projects/fpv-01.jpg" width="1180" height="587" loading="lazy" decoding="async" alt="SolidWorks isometric render of modular HDPE float raft assembly for the floating PV array">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">52 kWp Floating Solar System Design</h3>
+        <div class="pj-name">52 kWp Floating Solar System Design</div>
         <div class="pj-metric">52 kWp reservoir array · <b>53 MWh/yr</b> · <b>90.5%</b> performance ratio</div>
         <div class="pj-toolrow"><span class="pj-tool">PVsyst</span><span class="pj-tool">MATLAB</span><span class="pj-tool">SolidWorks</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: 52 kWp Floating Solar System Design">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-07 · SYSTEMS · PRINCIPLES OF ENGINEERING · CRANFIELD MSc</div>
@@ -3032,18 +2972,18 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual coursework, MSc Advanced Mechanical Engineering.</div>
       </div>
-    </article>
-    <article class="pj-card" data-pj="edpm">
+    </div>
+    <div class="pj-card" role="button" tabindex="0" data-pj="edpm" aria-label="Open project dossier: Green-Ammonia Pilot Plant — Project Plan">
       <div class="pj-shot">
         <span class="pj-tag">PRJ-08</span>
         <span class="pj-disc">PROJECT MGMT</span>
-        <img src="assets/projects/edpm-01-sm.jpg" width="1180" height="664" loading="lazy" decoding="async" alt="47-task critical-path Gantt with PERT variance table and work-package breakdown across an 8-phase, 254-day schedule">
+        <img src="assets/projects/edpm-01.jpg" width="1180" height="664" loading="lazy" decoding="async" alt="47-task critical-path Gantt with PERT variance table and work-package breakdown across an 8-phase, 254-day schedule">
       </div>
       <div class="pj-body">
-        <h3 class="pj-name">Green-Ammonia Pilot Plant — Project Plan</h3>
+        <div class="pj-name">Green-Ammonia Pilot Plant — Project Plan</div>
         <div class="pj-metric"><b>254-day</b>, £8–12M plan · 47-task critical path + PERT</div>
         <div class="pj-toolrow"><span class="pj-tool">MS Project</span><span class="pj-tool">CPM</span><span class="pj-tool">PERT</span></div>
-        <div class="pj-open" role="button" tabindex="0" aria-label="Open project dossier: Green-Ammonia Pilot Plant — Project Plan">Open dossier <span class="arr" aria-hidden="true">→</span></div>
+        <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
         <div class="pj-eyebrow">PRJ-08 · PROJECT MGMT · ENGINEERING DESIGN &amp; PROJECT MANAGEMENT · CRANFIELD MSc</div>
@@ -3083,7 +3023,77 @@ h2.title { scroll-margin-top: 84px; }
         </div>
         <div class="pj-note">Individual coursework; budget and schedule are illustrative student estimates.</div>
       </div>
-    </article>
+    </div>
+    </div>
+
+    <!-- FEATURE SHOT · Formula Student car on track -->
+    <div class="gallery-head reveal">
+      <span class="bar">▣</span>
+      <span class="t">ON TRACK</span>
+      <span>POSEIDON RACING · FORMULA STUDENT</span>
+      <span class="m">EVIDENCE</span>
+    </div>
+
+    <figure class="feature-shot reveal">
+      <span class="fs-corner tl"></span>
+      <span class="fs-corner br"></span>
+      <div class="fs-top">
+        <span>CAR 105 · UNIWA</span>
+        <span class="rec">ON TRACK</span>
+      </div>
+      <img src="assets/formula-student-car-105.jpg" width="1400" height="1130" loading="lazy" decoding="async" alt="University of West Attica Formula Student car, number 105, on track during a competition event">
+      <figcaption class="fs-caption">
+        <div class="left">
+          <div class="num">// THE CAR</div>
+          <div class="ttl">Poseidon Racing &mdash; Car 105</div>
+          <div class="sub">University of West Attica · Formula Student</div>
+        </div>
+        <div class="right">
+          <b>43-person team</b><br>
+          <b>200+ parts</b> in the BOM<br>
+          Endurance finisher · FS East
+        </div>
+      </figcaption>
+    </figure>
+
+    <!-- CAE / SIMULATION gallery -->
+    <div class="gallery-head reveal">
+      <span class="bar">▣</span>
+      <span class="t">CAE / SIMULATION</span>
+      <span>FEA · CONVERGENCE · CFD</span>
+      <span class="m">CLICK TO ENLARGE</span>
+    </div>
+
+    <div class="cae-grid reveal-stagger">
+      <figure class="cae-tile reveal" data-cap="<b>FEA — Structural Component.</b> von Mises stress (left) and displacement magnitude (right), solved in Abaqus. Peak stress ≈ 59.9 MPa, max displacement ≈ 0.039 mm.">
+        <span class="cae-id">FEA-01</span>
+        <span class="cae-zoom">⛶</span>
+        <div class="cae-img"><img src="assets/fea-structural.jpg" width="1600" height="567" loading="lazy" decoding="async" alt="FEA result showing von Mises stress and displacement magnitude on a structural component, solved in Abaqus"></div>
+        <figcaption class="cae-cap">
+          <div class="name">Structural FEA Result</div>
+          <div class="sub">Abaqus · von Mises &amp; displacement</div>
+        </figcaption>
+      </figure>
+
+      <figure class="cae-tile reveal" data-cap="<b>Mesh Convergence Study.</b> Max and zone-of-interest von Mises stress (left) and max displacement (right) vs. element count, with the selected converged mesh marked — verification before trusting the result.">
+        <span class="cae-id">FEA-02</span>
+        <span class="cae-zoom">⛶</span>
+        <div class="cae-img"><img src="assets/mesh-convergence.jpg" width="1155" height="557" loading="lazy" decoding="async" alt="Mesh convergence study plots for von Mises stress and displacement versus number of elements, with selected converged mesh"></div>
+        <figcaption class="cae-cap">
+          <div class="name">Mesh Convergence Study</div>
+          <div class="sub">Stress &amp; displacement vs. elements</div>
+        </figcaption>
+      </figure>
+
+      <figure class="cae-tile reveal" data-cap="<b>Aerofoil CFD Study.</b> Pressure field around a NACA 4412 and a high-lift flap configuration at multiple freestream velocities, solved in ANSYS Fluent.">
+        <span class="cae-id">CFD-01</span>
+        <span class="cae-zoom">⛶</span>
+        <div class="cae-img"><img src="assets/cfd-aerofoil.jpg" width="566" height="305" loading="lazy" decoding="async" alt="CFD pressure contours around NACA 4412 aerofoil and high-lift flap at different velocities, solved in ANSYS Fluent"></div>
+        <figcaption class="cae-cap">
+          <div class="name">Aerofoil CFD Study</div>
+          <div class="sub">ANSYS Fluent · pressure field</div>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -3198,37 +3208,37 @@ h2.title { scroll-margin-top: 84px; }
 
       <div class="interest-block reveal">
         <span class="ico">①</span>
-        <h3>3D Printing (since 2016)</h3>
+        <h4>3D Printing (since 2016)</h4>
         <p>Personal printers since the early days, well before it was a research subject. It feeds straight into how I think about additive manufacturing.</p>
       </div>
 
       <div class="interest-block reveal">
         <span class="ico">②</span>
-        <h3>Formula 1 — The Engineering</h3>
+        <h4>Formula 1 — The Engineering</h4>
         <p>Less the spectacle, more the regulations, the trade-offs, and the parts. I follow it the way an engineer reads a rival's solution, to work out <em>why</em> it's quick.</p>
       </div>
 
       <div class="interest-block reveal">
         <span class="ico">③</span>
-        <h3>Embedded Systems</h3>
+        <h4>Embedded Systems</h4>
         <p>Arduino-based IoT and a CNC router build keep the hardware-software bridge in working memory.</p>
       </div>
 
       <div class="interest-block reveal">
         <span class="ico">④</span>
-        <h3>Philosophy &amp; Literature</h3>
+        <h4>Philosophy &amp; Literature</h4>
         <p>Socratic, Hegelian, Aristotelian. Engineering decisions get cleaner when you've practiced the underlying habit of thought.</p>
       </div>
 
       <div class="interest-block reveal">
         <span class="ico">⑤</span>
-        <h3>Online Chess</h3>
+        <h4>Online Chess</h4>
         <p>Casual &amp; rapid formats. Trains the same muscle as concept-phase engineering: pattern recognition, planning under time pressure, knowing when a position is lost.</p>
       </div>
 
       <div class="interest-block reveal">
         <span class="ico">⑥</span>
-        <h3>Sci-Fi &amp; Film Photography</h3>
+        <h4>Sci-Fi &amp; Film Photography</h4>
         <p>Asimov &amp; Star Trek take engineering ambition seriously. 35mm analogue work calibrates patience for things that need time to develop.</p>
       </div>
 
@@ -3278,7 +3288,12 @@ h2.title { scroll-margin-top: 84px; }
 
 </main>
 
-
+<!-- Lightbox for CAE gallery -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged technical figure" aria-hidden="true">
+  <button type="button" class="lb-close" aria-label="Close enlarged figure">✕ Close</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
 
 <!-- Project dossier modal -->
 <div class="pj-modal" id="pj-modal" role="dialog" aria-modal="true" aria-label="Project dossier" aria-hidden="true">
@@ -3344,25 +3359,72 @@ h2.title { scroll-margin-top: 84px; }
 
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
 
+  // Accessible lightbox for the CAE gallery
+  (function(){
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCap = document.getElementById('lb-cap');
+    const lbClose = lb ? lb.querySelector('.lb-close') : null;
+    const main = document.getElementById('main');
+    if (!lb) return;
+    let lastFocus = null;
 
+    function open(tile){
+      const img = tile.querySelector('img');
+      if (!img) return;
+      lastFocus = tile;
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || '';
+      lbCap.innerHTML = tile.getAttribute('data-cap') || '';
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      if (main) main.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = 'hidden';
+      if (lbClose) lbClose.focus();
+    }
+    function close(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      if (main) main.removeAttribute('aria-hidden');
+      document.body.style.overflow = '';
+      if (lastFocus) { lastFocus.focus(); lastFocus = null; }
+    }
 
-  // Project dossiers — accessible detail modal + figure zoom + deep links
+    document.querySelectorAll('.cae-tile').forEach(tile => {
+      tile.setAttribute('tabindex', '0');
+      tile.setAttribute('role', 'button');
+      const nameEl = tile.querySelector('.cae-cap .name');
+      tile.setAttribute('aria-label', (nameEl ? nameEl.textContent + ' — ' : '') + 'enlarge figure');
+      tile.addEventListener('click', () => open(tile));
+      tile.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(tile); }
+      });
+    });
+
+    if (lbClose) lbClose.addEventListener('click', e => { e.stopPropagation(); close(); });
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Tab') { e.preventDefault(); if (lbClose) lbClose.focus(); } // trap focus in dialog
+    });
+  })();
+
+  // Project dossiers — accessible detail modal + figure zoom
   (function(){
     const modal = document.getElementById('pj-modal');
     const inner = document.getElementById('pj-panel-inner');
     const closeBtn = modal ? modal.querySelector('.pj-panel-close') : null;
     const main = document.getElementById('main');
-    const topbar = document.querySelector('.topbar');
     const zoom = document.getElementById('pj-zoom');
     const zoomImg = document.getElementById('pj-zoom-img');
     const zoomCap = document.getElementById('pj-zoom-cap');
     const zoomClose = zoom ? zoom.querySelector('.lb-close') : null;
     if (!modal || !inner) return;
-    let lastFocus = null, lastFig = null, openId = null;
+    let lastCard = null, lastFig = null;
 
     function wireFigures(){
       inner.querySelectorAll('.pj-fig').forEach(fig => {
-        if (!fig.querySelector('img')) return; // video figures play in place, nothing to zoom
         fig.setAttribute('tabindex', '0');
         fig.setAttribute('role', 'button');
         const cap = fig.getAttribute('data-cap') || '';
@@ -3373,80 +3435,55 @@ h2.title { scroll-margin-top: 84px; }
         });
       });
     }
-    function openModal(card, viaHistory){
+    function openModal(card){
       const detail = card.querySelector('.pj-detail');
       if (!detail) return;
-      lastFocus = card.querySelector('.pj-open') || card;
+      lastCard = card;
       inner.innerHTML = detail.innerHTML;
-      const h = inner.querySelector('.pj-h');
-      if (h) { h.id = 'pj-modal-title'; modal.setAttribute('aria-labelledby', 'pj-modal-title'); }
       wireFigures();
-      inner.querySelectorAll('video').forEach(v => {
-        if (reduceMotion) { v.controls = true; }
-        else { v.play().catch(() => {}); }
-      });
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
       if (main) main.setAttribute('aria-hidden', 'true');
-      if (topbar) topbar.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = 'hidden';
       modal.scrollTop = 0;
       if (closeBtn) closeBtn.focus();
-      openId = card.getAttribute('data-pj') || null;
-      if (!viaHistory && openId) { try { history.pushState({ pj: openId }, '', '#pj=' + openId); } catch (err) {} }
     }
-    function closeModal(viaHistory){
+    function closeModal(){
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
-      modal.removeAttribute('aria-labelledby');
       if (main) main.removeAttribute('aria-hidden');
-      if (topbar) topbar.removeAttribute('aria-hidden');
       document.body.style.overflow = '';
       inner.innerHTML = '';
-      if (lastFocus) { lastFocus.focus(); lastFocus = null; }
-      if (!viaHistory && (location.hash || '').indexOf('#pj=') === 0) {
-        try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {}
-      }
-      openId = null;
+      if (lastCard) { lastCard.focus(); lastCard = null; }
     }
     function openZoom(fig){
       if (!zoom) return;
       const img = fig.querySelector('img');
       if (!img) return;
       lastFig = fig;
-      zoomImg.src = fig.getAttribute('data-full') || img.currentSrc || img.src;
+      zoomImg.src = img.currentSrc || img.src;
       zoomImg.alt = img.alt || '';
       zoomCap.innerHTML = fig.getAttribute('data-cap') || '';
       zoom.classList.add('open');
       zoom.setAttribute('aria-hidden', 'false');
-      modal.setAttribute('aria-hidden', 'true'); // expose only the top dialog while stacked
       if (zoomClose) zoomClose.focus();
     }
     function closeZoom(){
       zoom.classList.remove('open');
       zoom.setAttribute('aria-hidden', 'true');
-      if (modal.classList.contains('open')) modal.setAttribute('aria-hidden', 'false');
       if (lastFig) { lastFig.focus(); lastFig = null; }
     }
 
     document.querySelectorAll('.pj-card').forEach(card => {
       card.addEventListener('click', () => openModal(card));
-      const btn = card.querySelector('.pj-open');
-      if (btn) btn.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); openModal(card); }
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card); }
       });
     });
     if (closeBtn) closeBtn.addEventListener('click', e => { e.stopPropagation(); closeModal(); });
-
-    // Close on backdrop only if the press STARTED there (text selection stays safe)
-    let downOnModal = false, downOnZoom = false;
-    modal.addEventListener('pointerdown', e => { downOnModal = (e.target === modal); });
-    modal.addEventListener('click', e => { if (e.target === modal && downOnModal) closeModal(); });
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
     if (zoomClose) zoomClose.addEventListener('click', e => { e.stopPropagation(); closeZoom(); });
-    if (zoom) {
-      zoom.addEventListener('pointerdown', e => { downOnZoom = (e.target === zoom); });
-      zoom.addEventListener('click', e => { if (e.target === zoom && downOnZoom) closeZoom(); });
-    }
+    if (zoom) zoom.addEventListener('click', e => { if (e.target === zoom) closeZoom(); });
 
     document.addEventListener('keydown', e => {
       if (zoom && zoom.classList.contains('open')) {
@@ -3460,28 +3497,11 @@ h2.title { scroll-margin-top: 84px; }
           const f = modal.querySelectorAll('button, [tabindex="0"], a[href]');
           if (!f.length) return;
           const first = f[0], last = f[f.length - 1];
-          if (!modal.contains(document.activeElement)) { e.preventDefault(); first.focus(); return; }
           if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
           else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
       }
     });
-
-    // Deep links: #pj=<id> opens that dossier; the Back button/gesture closes it
-    function openFromHash(){
-      const m = (location.hash || '').match(/^#pj=([a-z0-9-]+)$/);
-      if (!m) return false;
-      const card = document.querySelector('.pj-card[data-pj="' + m[1] + '"]');
-      if (card) { openModal(card, true); return true; }
-      return false;
-    }
-    window.addEventListener('popstate', () => {
-      if (zoom && zoom.classList.contains('open')) closeZoom();
-      const wantsDossier = (location.hash || '').indexOf('#pj=') === 0;
-      if (!wantsDossier && modal.classList.contains('open')) closeModal(true);
-      else if (wantsDossier) openFromHash();
-    });
-    openFromHash();
   })();
 </script>
 
