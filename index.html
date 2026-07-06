@@ -1444,6 +1444,8 @@ a { color: inherit; text-decoration: none; }
   background-size: 22px 22px; opacity: 0.28; pointer-events: none;
 }
 .pj-fig img { max-width: 100%; max-height: 58vh; width: auto; height: auto; object-fit: contain; position: relative; z-index: 1; }
+.pj-fig.video { cursor: default; }
+.pj-fig video { max-width: 100%; max-height: 58vh; width: auto; height: auto; object-fit: contain; position: relative; z-index: 1; display: block; }
 .pj-fig figcaption {
   font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 1.45;
   color: var(--text-dim); padding: 9px 12px; border-top: 1px solid var(--line);
@@ -2531,11 +2533,6 @@ a { color: inherit; text-decoration: none; }
           <div class="pj-fig-img"><img src="assets/projects/asv-03.jpg" width="1180" height="806" loading="lazy" decoding="async" alt="Live overhead tracking of a tug against a preset path, with real-time trajectory, look-ahead radius and latency readout."></div>
           <figcaption>Live overhead tracking of a tug against a preset path, with real-time trajectory, look-ahead radius and latency readout.</figcaption>
         </figure>
-        <figure class="pj-fig" data-full="assets/projects/asv-04.jpg" data-cap="Control-hardware architecture: 7.4 V LiPo, Arduino UNO WiFi MCU and TB9051FTG dual driver to the twin motors.">
-          <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/asv-04.jpg" width="1180" height="712" loading="lazy" decoding="async" alt="Control-hardware architecture: 7.4 V LiPo, Arduino UNO WiFi MCU and TB9051FTG dual driver to the twin motors."></div>
-          <figcaption>Control-hardware architecture: 7.4 V LiPo, Arduino UNO WiFi MCU and TB9051FTG dual driver to the twin motors.</figcaption>
-        </figure>
         </div>
         <div class="pj-cols">
           <div>
@@ -2552,9 +2549,9 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="pj-card flag" role="button" tabindex="0" data-pj="beng" aria-label="Open project dossier: Constitutive Material Parameters in AM Structures using AI">
       <div class="pj-shot">
-        <span class="pj-tag">THESIS · BEng</span>
+        <span class="pj-tag">THESIS · UNIWA</span>
         <span class="pj-disc">AI · FEA · MATERIALS</span>
-        <img src="assets/projects/beng-01.jpg" width="1162" height="627" loading="lazy" decoding="async" alt="GA-driven inverse FEA: experimental vs simulated force–displacement fit for a specimen (identification error 0.0043).">
+        <img src="assets/projects/beng-01.jpg" width="1180" height="538" loading="lazy" decoding="async" alt="Abaqus S-Mises stress envelope on the AM specimen model (deformation ×50), from the inverse-identification FEA.">
       </div>
       <div class="pj-body">
         <div class="pj-name">Constitutive Material Parameters in AM Structures using AI</div>
@@ -2563,30 +2560,34 @@ a { color: inherit; text-decoration: none; }
         <div class="pj-open">Open dossier <span class="arr" aria-hidden="true">→</span></div>
       </div>
       <div class="pj-detail" hidden>
-        <div class="pj-eyebrow">THESIS · BEng · BEng THESIS · UNIVERSITY OF WEST ATTICA</div>
+        <div class="pj-eyebrow">THESIS · UNIWA · BEng · 5-YEAR INTEGRATED MASTER’S · MECHANICAL ENGINEERING</div>
         <h3 class="pj-h" data-pj-title>Constitutive Material Parameters in AM Structures using AI</h3>
         <p class="pj-sub">An FEA and machine-learning workflow for predicting the properties of 3D-printed laminates.</p>
 
         <div class="pj-figs two">
-        <figure class="pj-fig" data-full="assets/projects/beng-01.jpg" data-cap="GA-driven inverse FEA: experimental vs simulated force–displacement fit for a specimen (identification error 0.0043).">
+        <figure class="pj-fig" data-full="assets/projects/beng-01.jpg" data-cap="Abaqus S-Mises stress envelope on the AM specimen model (deformation ×50), from the inverse-identification FEA.">
           <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/beng-01.jpg" width="1162" height="627" loading="lazy" decoding="async" alt="GA-driven inverse FEA: experimental vs simulated force–displacement fit for a specimen (identification error 0.0043)."></div>
-          <figcaption>GA-driven inverse FEA: experimental vs simulated force–displacement fit for a specimen (identification error 0.0043).</figcaption>
+          <div class="pj-fig-img"><img src="assets/projects/beng-01.jpg" width="1180" height="538" loading="lazy" decoding="async" alt="Abaqus S-Mises stress envelope on the AM specimen model (deformation ×50), from the inverse-identification FEA."></div>
+          <figcaption>Abaqus S-Mises stress envelope on the AM specimen model (deformation ×50), from the inverse-identification FEA.</figcaption>
         </figure>
-        <figure class="pj-fig" data-full="assets/projects/beng-02.jpg" data-cap="Neural-net accuracy per elastic constant — RMSE, relative RMSE and R² for E₁, E₂, ν, G₁₂, G₁₃, G₂₃.">
+        <figure class="pj-fig video">
+          <div class="pj-fig-img"><video src="assets/projects/beng-fea.mp4" width="1400" height="638" poster="assets/projects/beng-01.jpg" autoplay loop muted playsinline preload="metadata"></video></div>
+          <figcaption>FEA stress envelope animating through the load cycle (Abaqus/Standard).</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/beng-02.jpg" data-cap="GA-driven inverse FEA: experimental vs simulated force–displacement fit (identification error 0.0043).">
           <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/beng-02.jpg" width="900" height="300" loading="lazy" decoding="async" alt="Neural-net accuracy per elastic constant — RMSE, relative RMSE and R² for E₁, E₂, ν, G₁₂, G₁₃, G₂₃."></div>
+          <div class="pj-fig-img"><img src="assets/projects/beng-02.jpg" width="1162" height="627" loading="lazy" decoding="async" alt="GA-driven inverse FEA: experimental vs simulated force–displacement fit (identification error 0.0043)."></div>
+          <figcaption>GA-driven inverse FEA: experimental vs simulated force–displacement fit (identification error 0.0043).</figcaption>
+        </figure>
+        <figure class="pj-fig" data-full="assets/projects/beng-03.jpg" data-cap="Neural-net accuracy per elastic constant — RMSE, relative RMSE and R² for E₁, E₂, ν, G₁₂, G₁₃, G₂₃.">
+          <span class="zoom-hint" aria-hidden="true">⛶</span>
+          <div class="pj-fig-img"><img src="assets/projects/beng-03.jpg" width="900" height="300" loading="lazy" decoding="async" alt="Neural-net accuracy per elastic constant — RMSE, relative RMSE and R² for E₁, E₂, ν, G₁₂, G₁₃, G₂₃."></div>
           <figcaption>Neural-net accuracy per elastic constant — RMSE, relative RMSE and R² for E₁, E₂, ν, G₁₂, G₁₃, G₂₃.</figcaption>
         </figure>
-        <figure class="pj-fig" data-full="assets/projects/beng-03.jpg" data-cap="Hybrid GA–FEA loop: a MATLAB genetic algorithm drives Abaqus tensile FEA to invert six orthotropic constants.">
+        <figure class="pj-fig" data-full="assets/projects/beng-04.jpg" data-cap="Hybrid GA–FEA loop: a MATLAB genetic algorithm drives Abaqus tensile FEA to invert six orthotropic constants.">
           <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/beng-03.jpg" width="914" height="777" loading="lazy" decoding="async" alt="Hybrid GA–FEA loop: a MATLAB genetic algorithm drives Abaqus tensile FEA to invert six orthotropic constants."></div>
+          <div class="pj-fig-img"><img src="assets/projects/beng-04.jpg" width="914" height="777" loading="lazy" decoding="async" alt="Hybrid GA–FEA loop: a MATLAB genetic algorithm drives Abaqus tensile FEA to invert six orthotropic constants."></div>
           <figcaption>Hybrid GA–FEA loop: a MATLAB genetic algorithm drives Abaqus tensile FEA to invert six orthotropic constants.</figcaption>
-        </figure>
-        <figure class="pj-fig" data-full="assets/projects/beng-04.jpg" data-cap="FDM print orientations (flat / on-edge / upright) and raster-angle laminate schematic for the orthotropic ply model.">
-          <span class="zoom-hint" aria-hidden="true">⛶</span>
-          <div class="pj-fig-img"><img src="assets/projects/beng-04.jpg" width="850" height="439" loading="lazy" decoding="async" alt="FDM print orientations (flat / on-edge / upright) and raster-angle laminate schematic for the orthotropic ply model."></div>
-          <figcaption>FDM print orientations (flat / on-edge / upright) and raster-angle laminate schematic for the orthotropic ply model.</figcaption>
         </figure>
         </div>
         <div class="pj-cols">
