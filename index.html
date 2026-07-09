@@ -1295,10 +1295,10 @@ a { color: inherit; text-decoration: none; }
   border: none;
   color: inherit;
   font: inherit;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
 }
-.pj-card:hover { background: var(--surface); }
-.pj-card:focus-visible { outline: 2px solid var(--accent-2); outline-offset: -2px; }
+/* box-shadow elevation for hover feedback — reveal system owns transform, so we don't fight it */
+.pj-card:hover, .pj-card:focus-within { background: var(--surface); box-shadow: 0 14px 32px rgba(0,0,0,0.5); z-index: 2; }
 
 .pj-shot {
   position: relative;
@@ -1320,6 +1320,14 @@ a { color: inherit; text-decoration: none; }
   opacity: 0.3;
   pointer-events: none;
 }
+.pj-shot::after {
+  content: '⛶';
+  position: absolute; bottom: 8px; right: 11px; z-index: 3;
+  font-size: 14px; line-height: 1;
+  color: var(--text-mute);
+  pointer-events: none; transition: color 0.25s ease, transform 0.25s ease;
+}
+.pj-card:hover .pj-shot::after { color: var(--accent-2); transform: scale(1.12); }
 .pj-shot img {
   max-width: 100%; max-height: 100%;
   object-fit: contain;
@@ -1340,16 +1348,16 @@ a { color: inherit; text-decoration: none; }
   color: var(--bg); background: var(--accent-2);
   padding: 3px 7px; border-radius: 3px; font-weight: 700;
 }
-.pj-body { padding: 15px 16px 17px; display: flex; flex-direction: column; flex: 1; }
+.pj-body { padding: 18px 18px 18px; display: flex; flex-direction: column; flex: 1; }
 .pj-name {
   font-family: 'Saira Condensed', sans-serif;
-  font-weight: 800; font-size: 18px; line-height: 1.08;
+  font-weight: 800; font-size: 18px; line-height: 1.12;
   color: var(--text); letter-spacing: -0.005em;
 }
 .pj-metric {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; line-height: 1.45; color: var(--text-2);
-  margin-top: 9px;
+  font-size: 11px; line-height: 1.5; color: var(--text-2);
+  margin-top: 11px;
 }
 .pj-metric b { color: var(--accent-2); font-weight: 700; }
 .pj-toolrow { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 13px; }
@@ -1360,13 +1368,20 @@ a { color: inherit; text-decoration: none; }
   padding: 3px 9px; border-radius: 100px;
 }
 .pj-open {
-  margin-top: auto; padding-top: 14px;
+  margin-top: 18px; align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 8px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--text-dim); display: flex; align-items: center; gap: 7px;
-  transition: color 0.25s ease;
+  font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700;
+  color: var(--text-2);
+  border: 1px solid var(--line-3);
+  padding: 8px 14px; border-radius: 100px;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
-.pj-card:hover .pj-open { color: var(--accent); }
+.pj-open::before { content: '⛶'; font-size: 12px; line-height: 1; }
+.pj-card:hover .pj-open, .pj-open:focus-visible {
+  color: var(--bg); background: var(--accent-2); border-color: var(--accent-2);
+}
+.pj-open:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 .pj-open .arr { transition: transform 0.25s ease; }
 .pj-card:hover .pj-open .arr { transform: translateX(4px); }
 
