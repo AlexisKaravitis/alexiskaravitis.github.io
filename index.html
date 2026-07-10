@@ -1087,6 +1087,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   margin-top: 48px;
   border: 1px solid var(--line-2);
+  border-top: 2px solid var(--accent);
   overflow: hidden;
   background: var(--bg-2);
 }
@@ -1094,15 +1095,21 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  box-shadow: inset 0 0 120px rgba(10,10,11,0.55);
+  box-shadow: inset 0 0 100px rgba(10,10,11,0.30);
+  background: linear-gradient(180deg, rgba(10,10,11,0.10) 0%, transparent 26%);
   pointer-events: none;
   z-index: 2;
 }
 .feature-shot img {
   display: block;
   width: 100%;
-  height: auto;
-  filter: saturate(1.05) contrast(1.03);
+  aspect-ratio: 2.2 / 1;
+  object-fit: cover;
+  object-position: center 52%;
+  filter: saturate(1.08) contrast(1.06);
+}
+@media (max-width: 640px) {
+  .feature-shot img { aspect-ratio: 4 / 3; object-position: center 54%; }
 }
 .feature-shot .fs-top {
   position: absolute;
@@ -1583,13 +1590,14 @@ a { color: inherit; text-decoration: none; }
 .pj-card.flag { border-top: 2px solid var(--accent); }
 .pj-card.flag .pj-tag { color: var(--accent-2); }
 .pj-card.flag .pj-disc { background: var(--accent); color: var(--bg); }
-.pj-card.hero-dark .pj-shot { background: #000; }
+.pj-card.hero-dark .pj-shot { background: #0A0E16; }
 .pj-card.hero-dark .pj-shot::before, .pj-fig.dark .pj-fig-img::before { opacity: 0.14; }
-.pj-fig.dark .pj-fig-img { background: #000; }
+.pj-fig.dark .pj-fig-img { background: #0A0E16; }
 .pj-shot { transition: background 0.3s ease; }
 .pj-card:not(.hero-dark):hover .pj-shot { background: var(--surface); }
 .pj-card.flag .pj-name { font-size: 20px; }
 .pj-shot-placard { background: var(--bg-2); }
+.pj-shot-placard::after { content: none; }
 .pj-placard { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: left; padding: 4px 6px; }
 .pj-placard .pp-k, .pj-placard .pp-v { font-family: 'Saira Condensed', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.02; letter-spacing: -0.01em; }
 .pj-placard .pp-k { color: var(--text); }
