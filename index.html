@@ -484,72 +484,29 @@ a { color: inherit; text-decoration: none; }
 .tele-row .v.hot { color: var(--accent); }
 .tele-row .v.strong { color: var(--text); font-weight: 600; }
 
-/* CIRCUIT SVG */
-.circuit-wrap {
-  margin-top: 18px;
-  padding: 16px 18px 18px;
-  border-top: 1px solid var(--line);
-  background: var(--bg-2);
-}
-.circuit-wrap .lbl {
-  font-size: 10.5px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  margin-bottom: 10px;
+/* TELEMETRY FOOTER — closes the card, mirrors the header */
+.tele-foot {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 13px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-mute);
 }
-.circuit-wrap .lbl b { color: var(--accent); }
-
-.circuit-svg { width: 100%; height: auto; display: block; }
-.circuit-track {
-  fill: none;
-  stroke: var(--line-3);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.tele-foot b {
+  color: var(--accent);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
 }
-.circuit-active {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: drawTrack 4s ease-out 0.5s forwards;
-  filter: drop-shadow(0 0 5px rgba(29,78,216,0.5));
-}
-@keyframes drawTrack {
-  to { stroke-dashoffset: 0; }
-}
-.circuit-dot {
-  fill: var(--accent-2);
-  filter: drop-shadow(0 0 3px rgba(29,78,216,0.45));
-}
-.circuit-dot.now {
-  fill: var(--signal);
-  filter: drop-shadow(0 0 5px var(--signal));
-}
-.circuit-axis { stroke: var(--line-2); stroke-width: 1; }
-.circuit-tick text {
-  fill: var(--text-mute);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 7.5px; letter-spacing: 0.04em;
-}
-.circuit-area { fill: rgba(29,78,216,0.07); stroke: none; }
-.circuit-note {
-  fill: var(--accent-2);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 8px; font-weight: 700; letter-spacing: 0.05em;
-}
-.circuit-legend {
-  margin-top: 9px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 8.5px; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--text-dim);
-}
+/* Card fills the hero row height; rows distribute so there is no dead gap
+   where the trajectory chart used to sit, footer pins to the bottom edge */
+.hero-tele { display: flex; flex-direction: column; }
+.hero-tele .tele-body { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; }
 
 /* ───────────── METRICS BAR ───────────── */
 
@@ -2233,27 +2190,9 @@ h2.title { scroll-margin-top: 84px; }
             <span class="v strong">FROM SEPT 2026 · RELOCATE NOW</span>
           </div>
         </div>
-        <div class="circuit-wrap">
-          <div class="lbl"><span>Career · Trajectory</span><b>2018 → 2026</b></div>
-          <svg class="circuit-svg" viewBox="0 0 360 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career trajectory 2018 to 2026: BEng, Formula Student team lead growing the team from 6 to 40-plus members and finishing Endurance at FS East, Formula IHU technical coordinator, and MSc at Cranfield.">
-            <line x1="16" y1="112" x2="344" y2="112" class="circuit-axis"/>
-            <g class="circuit-tick">
-              <text x="20" y="124">2018</text>
-              <text x="180" y="124" text-anchor="middle">2022</text>
-              <text x="340" y="124" text-anchor="end">2026</text>
-            </g>
-            <path class="circuit-area" d="M20,100 C58,96 78,90 100,88 C150,84 182,66 220,52 L260,42 L300,30 L340,22 L340,112 L20,112 Z"/>
-            <path class="circuit-track" d="M20,100 C58,96 78,90 100,88 C150,84 182,66 220,52 L260,42 L300,30 L340,22"/>
-            <path id="hotLap" class="circuit-active" d="M20,100 C58,96 78,90 100,88 C150,84 182,66 220,52 L260,42 L300,30 L340,22"/>
-            <text x="150" y="94" class="circuit-note" text-anchor="middle">TEAM 6 → 40+</text>
-            <circle cx="20" cy="100" r="2.5" class="circuit-dot"/>
-            <circle cx="100" cy="88" r="2.5" class="circuit-dot"/>
-            <circle cx="220" cy="52" r="3.2" class="circuit-dot big"/>
-            <circle cx="260" cy="42" r="2.5" class="circuit-dot"/>
-            <circle cx="300" cy="30" r="2.5" class="circuit-dot"/>
-            <circle cx="340" cy="22" r="3.4" class="circuit-dot now"/>
-          </svg>
-          <div class="circuit-legend">BEng · FS team lead · Formula IHU · MSc Cranfield</div>
+        <div class="tele-foot">
+          <span>END OF READOUT</span>
+          <b>● SIGNAL LIVE</b>
         </div>
       </aside>
 
