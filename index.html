@@ -65,7 +65,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Saira+Condensed:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Saira+Condensed:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..400&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:        #FBFBF9;
@@ -240,8 +240,8 @@ a { color: inherit; text-decoration: none; }
 .sec-head .num { color: var(--text-mute); font-weight: 700; }
 .sec-head .title {
   font-family: 'Saira Condensed', sans-serif;
-  font-size: 16px;
-  letter-spacing: 0.2em;
+  font-size: 18px;
+  letter-spacing: 0.12em;
   color: var(--text);
   font-weight: 700;
 }
@@ -379,7 +379,7 @@ a { color: inherit; text-decoration: none; }
 
 .hero-lede {
   font-family: 'Fraunces', serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(18px, 1.6vw, 22px);
   line-height: 1.5;
   color: var(--text-2);
@@ -434,7 +434,7 @@ a { color: inherit; text-decoration: none; }
 .tele {
   background: var(--surface);
   border: 1px solid var(--line-2);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 0;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
@@ -725,9 +725,9 @@ a { color: inherit; text-decoration: none; }
 }
 .tl-content .org {
   font-family: 'Saira', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
-  color: var(--accent);
+  color: var(--text-2);
   margin-bottom: 6px;
   letter-spacing: 0.02em;
 }
@@ -750,6 +750,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-2);
   font-size: 15px;
   line-height: 1.55;
+  max-width: 680px;
 }
 .tl-content li::before {
   content: '';
@@ -1432,7 +1433,7 @@ a { color: inherit; text-decoration: none; }
   margin-top: 11px;
 }
 .pj-metric b { color: var(--accent-2); font-weight: 700; }
-.pj-toolrow { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 13px; }
+.pj-toolrow { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 13px; margin-bottom: 16px; }
 .pj-tool {
   font-family: 'JetBrains Mono', monospace;
   font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase;
@@ -1440,7 +1441,7 @@ a { color: inherit; text-decoration: none; }
   padding: 3px 9px; border-radius: 100px;
 }
 .pj-open {
-  margin-top: 18px; align-self: flex-start;
+  margin-top: auto; align-self: flex-start;
   display: inline-flex; align-items: center; gap: 8px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700;
@@ -1708,8 +1709,16 @@ h2.title { scroll-margin-top: 84px; }
   letter-spacing: 0.1em;
   font-weight: 700;
 }
-.cert .name { color: var(--text); font-weight: 500; }
-.cert .iss { color: var(--text-dim); font-size: 12px; letter-spacing: 0.04em; }
+.cert .name { color: var(--text); font-weight: 500; display: flex; align-items: baseline; min-width: 0; }
+.cert .name::after {
+  content: '';
+  flex: 1 1 auto;
+  margin: 0 4px 0 16px;
+  border-bottom: 1px dotted var(--line-3);
+  transform: translateY(-4px);
+}
+.cert .iss { color: var(--text-dim); font-size: 12px; letter-spacing: 0.04em; white-space: nowrap; }
+@media (max-width: 560px) { .cert .name::after { display: none; } }
 
 /* ───────────── INTERESTS ───────────── */
 
@@ -1795,8 +1804,11 @@ h2.title { scroll-margin-top: 84px; }
   margin-bottom: 50px;
  box-shadow: var(--shadow-card);}
 @media (min-width: 720px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
-/* fill the odd trailing cell so the 1px-line pattern doesn't leak a bright ghost cell */
-@media (min-width: 720px) { .contact-grid::after { content: ''; background: var(--bg); } }
+/* primary email channel spans full width + accent edge; the remaining four
+   channels form a clean 2x2, so no trailing ghost cell needs filling */
+.contact-item.primary { grid-column: 1 / -1; border-left: 3px solid var(--accent); }
+.contact-item.primary .val { font-size: 26px; }
+.contact-item.primary:hover { background: rgba(29,78,216,0.04); }
 
 .contact-item {
   background: var(--bg);
@@ -1831,9 +1843,8 @@ h2.title { scroll-margin-top: 84px; }
   font-size: 11px;
   color: var(--text-dim);
 }
-.contact-item.wa .lbl { color: var(--signal); }
-.contact-item.wa .val { color: var(--signal); }
-.contact-item.wa:hover { background: rgba(6,118,71,0.05); }
+/* WhatsApp is a contact channel, not a status — keep green reserved for
+   the AVAILABLE signal so it stays meaningful; inherits default ink val */
 
 .foot {
   padding-top: 30px;
@@ -1920,14 +1931,7 @@ h2.title { scroll-margin-top: 84px; }
   display: none;
 }
 @media (min-width: 760px) { .disc-meta { display: block; } }
-.disc-arr {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 18px;
-  color: var(--text-mute);
-  transform: translateX(-8px);
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
+.disc-arr { display: none; }
 
 .disc-foot {
   margin-top: 26px;
@@ -3339,7 +3343,7 @@ h2.title { scroll-margin-top: 84px; }
     </div>
 
     <div class="contact-grid reveal-stagger">
-      <a class="contact-item reveal" href="mailto:Alexis.Karavitis.978@cranfield.ac.uk">
+      <a class="contact-item primary reveal" href="mailto:Alexis.Karavitis.978@cranfield.ac.uk">
         <div class="lbl">→ EMAIL · PRIMARY</div>
         <div class="val">Alexis.Karavitis.978<br>@cranfield.ac.uk</div>
         <div class="sub">Reply within 24h · UK time</div>
