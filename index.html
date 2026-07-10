@@ -84,6 +84,10 @@
   --accent-2:  #0F3CA5;
   --signal:    #067647;
   --blueprint: #175CD3;
+  --r-sm: 3px;
+  --sp-section: clamp(88px, 8.5vw, 124px);
+  --shadow-card: 0 1px 2px rgba(16,24,40,0.045), 0 16px 38px -22px rgba(16,24,40,0.24);
+  --elev-hover: 0 12px 28px -14px rgba(16,24,40,0.20);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -97,35 +101,38 @@ body {
   font-weight: 400;
   line-height: 1.55;
   overflow-x: hidden;
+  position: relative;
   font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Global background — subtle blueprint grid that fades at edges */
+/* Global background — a real drafting field: fine + major blueprint grid, blue-tinted, even vertical fade */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 88px 88px;
+    linear-gradient(rgba(23,92,211,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23,92,211,0.045) 1px, transparent 1px),
+    linear-gradient(rgba(23,92,211,0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23,92,211,0.075) 1px, transparent 1px);
+  background-size: 34px 34px, 34px 34px, 170px 170px, 170px 170px;
   background-position: -1px -1px;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.55;
-  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 35%, transparent 80%);
-          mask-image: radial-gradient(ellipse at 50% 30%, #000 35%, transparent 80%);
+  opacity: 1;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 7%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0, #000 7%, #000 92%, transparent 100%);
 }
 
-/* Soft red glow ambient */
+/* Soft blue ambient — absolute so it stays at the top of the page (hero only), not following the scroll */
 body::after {
   content: '';
-  position: fixed;
-  top: -300px; right: -300px;
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(29,78,216,0.10), transparent 60%);
+  position: absolute;
+  top: -340px; right: -340px;
+  width: 780px; height: 780px;
+  background: radial-gradient(circle, rgba(29,78,216,0.07), transparent 62%);
   pointer-events: none;
   z-index: 0;
 }
@@ -227,7 +234,7 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   color: var(--text-dim);
 }
-.sec-head .num { color: var(--accent); font-weight: 700; }
+.sec-head .num { color: var(--text-mute); font-weight: 700; }
 .sec-head .title {
   font-family: 'Saira Condensed', sans-serif;
   font-size: 16px;
@@ -542,22 +549,24 @@ a { color: inherit; text-decoration: none; }
 /* ───────────── METRICS BAR ───────────── */
 
 .metrics {
-  padding: 60px 0;
+  padding: 84px 0;
   border-bottom: 1px solid var(--line);
   background: var(--bg-2);
+  position: relative;
+  z-index: 1;
 }
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
+  background: var(--line-2);
+  border: 1px solid var(--line-2);
+ box-shadow: var(--shadow-card);}
 @media (min-width: 720px) { .metrics-grid { grid-template-columns: repeat(5, 1fr); } }
 
 .metric {
   background: var(--bg-2);
-  padding: 26px 22px;
+  padding: 32px 24px;
   position: relative;
   transition: background 0.3s ease;
 }
@@ -593,7 +602,9 @@ a { color: inherit; text-decoration: none; }
 
 /* ───────────── DOSSIER (ABOUT) ───────────── */
 
-.section { padding: 100px 0; border-bottom: 1px solid var(--line); }
+.section { padding: var(--sp-section) 0; border-bottom: 1px solid var(--line); position: relative; z-index: 1; }
+/* Alternating drafting bands so the long middle run reads as chaptered, not one wall */
+.section:nth-of-type(even) { background: #F4F6FA; }
 
 .dossier-grid {
   display: grid;
@@ -680,7 +691,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-dim);
 }
 .tl-meta .date {
-  color: var(--accent);
+  color: var(--text-mute);
   font-weight: 700;
   font-size: 12px;
   margin-bottom: 8px;
@@ -750,14 +761,14 @@ a { color: inherit; text-decoration: none; }
   padding: 32px 28px;
   position: relative;
   transition: all 0.3s ease;
-}
-.edu-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+ box-shadow: var(--shadow-card);}
+.edu-card:hover {border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--elev-hover);}
 .edu-card .yr {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--text-mute);
   font-weight: 700;
   margin-bottom: 14px;
   display: flex;
@@ -845,9 +856,9 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
+  background: var(--line-2);
+  border: 1px solid var(--line-2);
+ box-shadow: var(--shadow-card);}
 @media (min-width: 720px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1040px) { .skills-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
@@ -862,7 +873,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--text-mute);
   margin-bottom: 6px;
   font-weight: 700;
 }
@@ -940,9 +951,9 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
+  background: var(--line-2);
+  border: 1px solid var(--line-2);
+ box-shadow: var(--shadow-card);}
 @media (min-width: 880px) { .achievements { grid-template-columns: 1fr 1fr; } }
 
 .ach {
@@ -1053,7 +1064,7 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   color: var(--text-dim);
 }
-.gallery-head .bar { color: var(--accent); font-weight: 700; }
+.gallery-head .bar { color: var(--text-mute); font-weight: 700; }
 .gallery-head .t { color: var(--text); font-weight: 700; font-family: 'Saira Condensed', sans-serif; font-size: 14px; letter-spacing: 0.16em; }
 .gallery-head .m { margin-left: auto; color: var(--text-mute); }
 
@@ -1171,10 +1182,10 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: var(--line-2);
+  border: 1px solid var(--line-2);
   margin-top: 22px;
-}
+ box-shadow: var(--shadow-card);}
 @media (min-width: 760px) { .cae-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
 .cae-tile {
@@ -1318,9 +1329,9 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
+  background: var(--line-2);
+  border: 1px solid var(--line-2);
+ box-shadow: var(--shadow-card);}
 @media (min-width: 640px) { .pj-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1000px) { .pj-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
@@ -1691,8 +1702,8 @@ h2.title { scroll-margin-top: 84px; }
   padding: 24px;
   position: relative;
   transition: all 0.3s ease;
-}
-.interest-block:hover { border-color: var(--accent); }
+ box-shadow: var(--shadow-card);}
+.interest-block:hover {border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--elev-hover);}
 .interest-block .ico {
   font-family: 'Saira Condensed', sans-serif;
   font-size: 32px;
@@ -1756,10 +1767,10 @@ h2.title { scroll-margin-top: 84px; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: var(--line-2);
+  border: 1px solid var(--line-2);
   margin-bottom: 50px;
-}
+ box-shadow: var(--shadow-card);}
 @media (min-width: 720px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
 /* fill the odd trailing cell so the 1px-line pattern doesn't leak a bright ghost cell */
 @media (min-width: 720px) { .contact-grid::after { content: ''; background: var(--bg); } }
@@ -1819,9 +1830,9 @@ h2.title { scroll-margin-top: 84px; }
 /* ───────────── DISCIPLINES BANNER ───────────── */
 
 .disciplines {
-  padding: 80px 0 90px;
+  padding: var(--sp-section) 0;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background: var(--bg);
   position: relative;
   overflow: hidden;
 }
